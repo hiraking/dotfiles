@@ -1,0 +1,111 @@
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = 'QuickRun'
+hook_add = '''
+  nnoremap <silent><Leader>r <cmd>QuickRun<CR>
+'''
+hook_source = '''
+  source ~/.vim/plugins/quickrun_rc.vim
+'''
+
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+on_map = {nxo = '<Plug>'}
+hook_add = '''
+  let g:clever_f_not_overwrites_standard_mappings = 1
+  let g:clever_f_mark_direct = 1
+  let g:clever_f_smart_case = 1
+  let g:clever_f_use_migemo = 1
+  nmap f <Plug>(clever-f-f)
+  xmap f <Plug>(clever-f-f)
+  omap f <Plug>(clever-f-f)
+  nmap F <Plug>(clever-f-F)
+  xmap F <Plug>(clever-f-F)
+  omap F <Plug>(clever-f-F)
+  nmap t <Plug>(clever-f-t)
+  xmap t <Plug>(clever-f-t)
+  omap t <Plug>(clever-f-t)
+  nmap T <Plug>(clever-f-T)
+  xmap T <Plug>(clever-f-T)
+  omap T <Plug>(clever-f-T)
+'''
+
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_map = '<Plug>(openbrowser'
+on_cmd = 'OpenBrowserSearch'
+hook_add = '''
+	nmap gx <Plug>(openbrowser-smart-search)
+	vmap gx <Plug>(openbrowser-smart-search)
+'''
+hook_source = '''
+  for cmd in ['wsl-open', 'xdg-open', 'exo-open']
+    if executable(cmd)
+      let g:openbrowser_browser_commands = [
+      \   {'name': cmd,
+      \  "args": ["{browser}", "{uri}"]},
+      \]
+    endif
+  endfor
+'''
+
+[[plugins]]
+repo = 'previm/previm'
+on_cmd = 'PrevimOpen'
+hook_source = '''
+  let g:previm_show_header=0
+  if vimrc#is_wsl()
+    let g:previm_open_cmd='wsl-open'
+  endif
+'''
+depends = 'open-browser.vim'
+
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+if = 'has("nvim")'
+on_event = 'BufRead'
+lua_source = '''
+require'nvim-treesitter.configs'.setup {
+    highlight = {
+      enable = true,
+      disable = {'latex', 'help'},
+    },
+    refactor = {
+      highlight_defintions = {
+        enable = true
+      },
+      smart_rename = {
+        enable = true,
+        smart_rename = 'grr'
+      },
+      navigation = {
+        enable = true,
+        goto_definition = 'gnd',
+        list_definitions = 'gnD'
+      }
+    },
+    ignore_install = { "phpdoc", "help" },
+    ensure_installed = 'all'
+}
+'''
+
+[[plugins]]
+repo = 'nvim-treesitter/playground'
+on_source = 'nvim-treesitter'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'css']
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'xml']
+
+[[plugins]]
+repo = "mbbill/undotree"
+on_cmd = 'UndotreeToggle'
+
+[[plugins]]
+repo = 'mhinz/vim-signify'
+on_event = 'BufRead'

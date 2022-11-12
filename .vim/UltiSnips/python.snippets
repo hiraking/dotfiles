@@ -1,0 +1,35 @@
+snippet mapint "map(int, input().split())" i
+map(int, input().split())
+endsnippet
+
+snippet intinput "int(input())" i
+int(input())
+endsnippet
+
+snippet for "for i in LIST" b
+for ${1:i} in ${2:range(${3:N})}:
+	$4
+endsnippet
+
+snippet enume "for idx, val in enumerate" b
+for ${1:i}, ${2:x} in enumerate(${3:LIST}):
+	$4
+endsnippet
+
+snippet yorn "print Yes or No" b
+if (${1:flag}):
+	print("Yes")
+else:
+	print("No")
+endsnippet
+
+snippet Yorn "print YES or NO" b
+if (${1:flag}):
+	print("YES")
+else:
+	print("NO")
+endsnippet
+
+snippet setrec "sys.setrecursionlimit" b
+sys.setrecursionlimit(1000000)
+endsnippet

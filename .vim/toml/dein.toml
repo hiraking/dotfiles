@@ -1,0 +1,71 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'preservim/nerdtree'
+hook_add = '''
+  nnoremap <leader>n :NERDTree
+'''
+
+[[plugins]]
+repo = 'preservim/nerdcommenter'
+
+[[plugins]]
+repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+source = 'release'
+build = 'coc#util#install()'
+hook_add = '''
+    source ~/.vim/plugins/coc_rc.vim
+'''
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    source ~/.vim/plugins/lightline_rc.vim
+'''
+
+[[plugins]]
+repo = 'SirVer/ultisnips'
+hook_add = '''
+    let g:UltiSnipsExpandTrigger='<Nop>'
+    let g:UltiSnipsJumpForwardTrigger='<C-n>'
+    let g:UltiSnipsJumpBackwardTrigger='<C-p>'
+    let g:UltiSnipsEditSplit='vertical'
+    let g:UltiSnipsSnippetDir='~/.vim/UltiSnips'
+    let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips']
+'''
+
+[[plugins]]
+repo = 'itchyny/vim-gitbranch'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+hook_add = '''
+    nnoremap <leader>f :Files
+'''
+[[plugins]]
+repo = 'EdenEast/nightfox.nvim'
+
+[[plugins]]
+repo = 'folke/tokyonight.nvim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'markonm/traces.vim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
