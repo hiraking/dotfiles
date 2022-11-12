@@ -1,7 +1,7 @@
 " dein settings--------------------------------------------
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-let s:toml_dir = expand('~/.vim/toml')
+let s:toml_dir = expand('~/dotfiles/.vim/toml')
 
 let s:dein_toml = s:toml_dir . '/dein.toml'
 let s:dein_lazy_toml = s:toml_dir . '/dein_lazy.toml'
