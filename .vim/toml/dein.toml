@@ -34,8 +34,8 @@ hook_add = '''
     let g:UltiSnipsJumpForwardTrigger='<C-n>'
     let g:UltiSnipsJumpBackwardTrigger='<C-p>'
     let g:UltiSnipsEditSplit='vertical'
-    let g:UltiSnipsSnippetDir='~/.vim/UltiSnips'
-    let g:UltiSnipsSnippetDirectories=['~/.vim/UltiSnips']
+    let g:UltiSnipsSnippetDir='~/dotfiles/.vim/UltiSnips'
+    let g:UltiSnipsSnippetDirectories=['~/dotfiles/.vim/UltiSnips']
 '''
 
 [[plugins]]
