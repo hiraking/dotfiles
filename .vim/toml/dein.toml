@@ -4,7 +4,7 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'preservim/nerdtree'
 hook_add = '''
-  nnoremap <leader>n :NERDTree
+  nnoremap <leader>n :NERDTree<CR>
 '''
 
 [[plugins]]

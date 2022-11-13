@@ -34,8 +34,21 @@ if (${1:flag}) cout << "YES" << endl;
 else cout << "NO" << endl;
 endsnippet
 
+snippet sort "sort(v.begin(), v.end())" b
+sort(${1:v}.begin(), $1.end());
+endsnippet
+
+snippet sortr "sort(v.rbegin(), v.rend())" b
+sort(${1:v}.rbegin(), $1.rend());
+endsnippet
+
+snippet for "for" b
+for (${1:int i = 0}; ${2:i < N}; ${3:i++}) {
+	$4
+}
+endsnippet
 snippet fori "for (0, N)" b
-for (int ${1:i} = 0; i < ${2:MAX}; i++) {
+for (int ${1:i} = 0; $1 < ${2:MAX}; $1++) {
 	$3
 }
 endsnippet
@@ -95,13 +108,13 @@ unordered_set<${1:int}> $2
 endsnippet
 
 snippet que "queue<T>" b
-queue<${1:int}> ${2:que}
+queue<${1:int}> ${2:que};
 endsnippet
 
 snippet stack "stack<T>" b
-stack<${1:int}> ${2:st}
+stack<${1:int}> ${2:st};
 endsnippet
 
 snippet deq "deque<T>" b
-deque<${1:int}> ${2:deq}
+deque<${1:int}> ${2:deq};
 endsnippet
