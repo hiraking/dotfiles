@@ -81,7 +81,7 @@ repo = 'numToStr/Comment.nvim'
 hook_add = '''
 lua << EOF
 require('Comment').setup()
-EOF
+eoF
 '''
 
 [[plugins]]
@@ -105,5 +105,3 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'markonm/traces.vim'
 
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'
