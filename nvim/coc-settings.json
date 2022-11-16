@@ -6,5 +6,6 @@
         "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
       }
     },
-    "snippets.ultisnips.pythonPrompt": false
+    "snippets.ultisnips.pythonPrompt": false,
+    "coc.preferences.formatOnType": true,
 }

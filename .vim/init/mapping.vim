@@ -4,8 +4,6 @@ nnoremap k gk
 inoremap <silent> jj <ESC>
 inoremap <silent> ;; <ESC>A;
 
-" 補完表示時のEnterで改行をしない
-inoremap <expr><CR>  pumvisible() ? "<C-y>" : "<CR>"
 
 nnoremap :clip :Clip<CR><CR>
 

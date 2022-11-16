@@ -34,12 +34,11 @@ endif
 
 let s:removed_plugins = dein#check_clean()
 if len(s:removed_plugins) > 0
-    call map(s:removed_plugins, "delete(v:val, 'rf')")
-    call dein#recache_runtimepath()
+  call map(s:removed_plugins, "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
 endif
 " end dein settings---------------------------------------
 
 set rtp+=~/.vim/
 runtime! init/*.vim
-set rtp+=/usr/local/opt/fzf
 

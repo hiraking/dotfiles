@@ -2,53 +2,85 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'preservim/nerdtree'
-hook_add = '''
-  nnoremap <leader>n :NERDTree<CR>
-'''
-
-[[plugins]]
-repo = 'preservim/nerdcommenter'
-
-[[plugins]]
-repo = 'simeji/winresizer'
-
-[[plugins]]
 repo = 'neoclide/coc.nvim'
 source = 'release'
 build = 'coc#util#install()'
 hook_add = '''
-    source ~/.vim/plugins/coc_rc.vim
+source ~/.vim/plugins/coc_rc.vim
 '''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-    source ~/.vim/plugins/lightline_rc.vim
+source ~/.vim/plugins/lightline_rc.vim
 '''
 
 [[plugins]]
-repo = 'SirVer/ultisnips'
-hook_add = '''
-    let g:UltiSnipsExpandTrigger='<Nop>'
-    let g:UltiSnipsJumpForwardTrigger='<C-n>'
-    let g:UltiSnipsJumpBackwardTrigger='<C-p>'
-    let g:UltiSnipsEditSplit='vertical'
-    let g:UltiSnipsSnippetDir='~/dotfiles/.vim/UltiSnips'
-    let g:UltiSnipsSnippetDirectories=['~/dotfiles/.vim/UltiSnips']
-'''
+repo = 'lambdalisue/fern.vim'
 
 [[plugins]]
 repo = 'itchyny/vim-gitbranch'
 
 [[plugins]]
-repo = 'junegunn/fzf'
+repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
-repo = 'junegunn/fzf.vim'
+repo = 'nvim-telescope/telescope.nvim'
 hook_add = '''
-    nnoremap <leader>f :Files
+nnoremap <C-x> <CR>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+
+lua <<EOF
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      n = {
+        ["<esc>"] = require('telescope.actions').close,
+      },
+      i = {
+        ["<esc>"] = require('telescope.actions').close,
+        ["<C-a>"] = require('telescope.actions').send_to_qflist + require('telescope.actions').open_qflist,
+        ["<C-q>"] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist
+      }
+    }
+  }
+}
+EOF
 '''
+
+[[plugins]]
+repo = 'tami5/sqlite.lua'
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-frecency.nvim'
+hook_add = '''
+nnoremap <C-f> <cmd>Telescope frecency<cr>
+lua << EOF
+require"telescope".load_extension("frecency")
+EOF
+'''
+
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+hook_add = '''
+lua << EOF
+require('gitsigns').setup()
+EOF
+'''
+
+[[plugins]]
+repo = 'numToStr/Comment.nvim'
+hook_add = '''
+lua << EOF
+require('Comment').setup()
+EOF
+'''
+
 [[plugins]]
 repo = 'EdenEast/nightfox.nvim'
 
@@ -66,6 +98,3 @@ repo = 'markonm/traces.vim'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
-
-[[plugins]]
-repo = 'jiangmiao/auto-pairs'
