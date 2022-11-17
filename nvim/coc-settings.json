@@ -1,10 +1,8 @@
 {
-    "languageserver": {
-      "clangd": {
-        "command": "clangd",
-        "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
-        "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
-      }
-    },
     "snippets.ultisnips.pythonPrompt": false,
+    "suggest.languageSourcePriority": 80,
+    "suggest.minTriggerInputLength": 2,
+    "suggest.triggerAfterInsertEnter": true,
+    "suggest.acceptSuggestionOnCommitCharacter": true,
+    "suggest.snippetIndicator": " ►",
 }
