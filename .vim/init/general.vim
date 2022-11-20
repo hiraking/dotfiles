@@ -1,5 +1,5 @@
 set termguicolors
-colorscheme nightfox
+autocmd VimEnter * colorscheme tokyonight
 set t_ut=""
 
 if (&term =~ '^xterm' && &t_Co == 256)
@@ -38,15 +38,15 @@ set scrolloff=5
 set completeopt=menuone,noinsert,noselect
 
 " statusline
-set statusline=%F
-set statusline+=%m
-set statusline+=%r
-set statusline+=%h
-set statusline+=%w
-set statusline+=%=
-set statusline+=[ENC=%{&fileencoding}]
-set statusline+=[LOW=%l/%L]
-set laststatus=2
+" set statusline=%F
+" set statusline+=%m
+" set statusline+=%r
+" set statusline+=%h
+" set statusline+=%w
+" set statusline+=%=
+" set statusline+=[ENC=%{&fileencoding}]
+" set statusline+=[LOW=%l/%L]
+" set laststatus=2
 
 " Tab
 set list lcs=tab:\|\

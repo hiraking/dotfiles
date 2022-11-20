@@ -9,17 +9,25 @@ source ~/.vim/plugins/quickrun_rc.vim
 '''
 
 [[plugins]]
-repo = 'lukas-reineke/indent-blankline.nvim'
-on_event = 'BufRead'
+repo = 'simeji/winresizer'
+on_cmd = 'WinResizerStartResize'
 hook_add = '''
-lua << EOF
-require('indent_blankline').setup()
-EOF
+nnoremap <C-e> <cmd>WinResizerStartResize<CR>
 '''
 
 [[plugins]]
-repo = 'simeji/winresizer'
-on_cmd = 'WinResizerStartResize'
+repo = 'windwp/nvim-autopairs'
+on_event = 'InsertEnter'
+lua_source = '''
+require("nvim-autopairs").setup {}
+'''
+
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+on_map = '<Plug>(fern-action-'
+hook_source = '''
+source ~/.vim/plugins/fern_rc.vim
+'''
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
@@ -41,6 +49,13 @@ omap t <Plug>(clever-f-t)
 nmap T <Plug>(clever-f-T)
 xmap T <Plug>(clever-f-T)
 omap T <Plug>(clever-f-T)
+'''
+
+[[plugins]]
+repo = 'norcalli/nvim-colorizer.lua'
+on_cmd = 'ColorizerAttachToBuffer'
+lua_source = '''
+require'colorizer'.setup()
 '''
 
 [[plugins]]
@@ -75,6 +90,10 @@ require'nvim-treesitter.configs'.setup {
 [[plugins]]
 repo = 'nvim-treesitter/playground'
 on_source = 'nvim-treesitter'
+
+[[plugins]]
+repo = 'markonm/traces.vim'
+on_event = 'CmdwinEnter'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'

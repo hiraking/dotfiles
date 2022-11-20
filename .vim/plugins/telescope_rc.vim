@@ -3,12 +3,26 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 
+" c.f. https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes
 lua << EOF
+local telescope = require("telescope")
+local telescopeConfig = require("telescope.config")
+
+-- Clone the default Telescope configuration
+local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+
+-- I want to search in hidden/dot files.
+table.insert(vimgrep_arguments, "--hidden")
+-- I don't want to search in the `.git` directory.
+table.insert(vimgrep_arguments, "--glob")
+table.insert(vimgrep_arguments, "!.git/*")
+
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = {
       'node_modules', '.git'
     },
+    vimgrep_arguments = vimgrep_arguments,
     mappings = {
       n = {
         ["<esc>"] = require('telescope.actions').close,
@@ -27,7 +41,7 @@ require('telescope').setup{
   pickers = {
     find_files = {
       hidden = true,
-    }
+    },
   }
 }
 EOF
