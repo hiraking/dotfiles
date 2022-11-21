@@ -18,8 +18,8 @@ require("bufferline").setup {
    -- show_tab_indicators = false,
     offsets = {
       {
-        filetype = "fern",
-        -- text = "File Explorer",
+        filetype = "NvimTree",
+        text = "File Explorer",
         highlight = "Directory",
       }
     },

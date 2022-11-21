@@ -14,6 +14,7 @@ repo = 'nvim-lua/plenary.nvim'
 
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
+depends = ['plenary.nvim']
 hook_add = '''
 source ~/.vim/plugins/telescope_rc.vim
 '''
@@ -22,16 +23,28 @@ source ~/.vim/plugins/telescope_rc.vim
 repo = 'tami5/sqlite.lua'
 
 [[plugins]]
-repo = 'nvim-tree/nvim-web-devicons'
+repo = 'nvim-telescope/telescope-file-browser.nvim'
+# on_cmd = 'Telescope file_browser'
+hook_add = '''
+nnoremap <Leader>fb <cmd>Telescope file_browser<CR>
+lua << EOF
+require('telescope').load_extension('file_browser')
+EOF
+'''
 
 [[plugins]]
 repo = 'nvim-telescope/telescope-frecency.nvim'
+depends = ['sqlite.lua']
+# on_cmd = 'Telescope frecency'
 hook_add = '''
-nnoremap <C-f> <cmd>Telescope frecency<cr>
+nnoremap <C-f> <cmd>Telescope frecency<CR>
 lua << EOF
-require"telescope".load_extension("frecency")
+require('telescope').load_extension('frecency')
 EOF
 '''
+
+[[plugins]]
+repo = 'nvim-tree/nvim-web-devicons'
 
 [[plugins]]
 repo = 'lewis6991/gitsigns.nvim'
@@ -46,6 +59,12 @@ require('indent_blankline').setup()
 '''
 
 [[plugins]]
+repo = 'tiagovla/scope.nvim'
+lua_add = '''
+require("scope").setup()
+'''
+
+[[plugins]]
 repo = 'numToStr/Comment.nvim'
 lua_add = '''
 require('Comment').setup()
@@ -54,7 +73,7 @@ require('Comment').setup()
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
 hook_add = '''
-source ~/dotfiles/.vim/plugins/lualine.vim
+source ~/dotfiles/.vim/plugins/lualine_rc.vim
 '''
 
 [[plugins]]
@@ -62,12 +81,6 @@ repo = 'akinsho/bufferline.nvim'
 tag = "v3.*"
 hook_add = '''
 source ~/.vim/plugins/bufferline_rc.vim
-'''
-
-[[plugins]]
-repo = 'tiagovla/scope.nvim'
-lua_add = '''
-require("scope").setup()
 '''
 
 [[plugins]]

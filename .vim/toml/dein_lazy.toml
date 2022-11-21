@@ -15,6 +15,7 @@ hook_add = '''
 nnoremap <C-e> <cmd>WinResizerStartResize<CR>
 '''
 
+
 [[plugins]]
 repo = 'windwp/nvim-autopairs'
 on_event = 'InsertEnter'
@@ -27,6 +28,18 @@ repo = 'lambdalisue/fern.vim'
 on_map = '<Plug>(fern-action-'
 hook_source = '''
 source ~/.vim/plugins/fern_rc.vim
+'''
+
+[[plugins]]
+repo = 'nvim-tree/nvim-tree.lua'
+on_cmd = ['NvimTreeOpen', 'NvimTreeFocus', 'NvimTreeFindFile']
+hook_add = '''
+nnoremap <leader>nn <cmd>NvimTreeFocus<CR>
+nnoremap <leader>nf <cmd>NvimTreeFindFile<CR>
+nnoremap <leader>nq <cmd>NvimTreeClose<CR>
+'''
+hook_source = '''
+source ~/.vim/plugins/nvimtree_rc.vim
 '''
 
 [[plugins]]

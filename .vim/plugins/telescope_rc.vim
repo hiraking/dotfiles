@@ -1,7 +1,7 @@
 nnoremap <C-x> <CR>
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 
 " c.f. https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes
 lua << EOF
@@ -36,12 +36,17 @@ require('telescope').setup{
         ["<C-j>"] = require('telescope.actions').move_selection_next,
         ["<C-k>"] = require('telescope.actions').move_selection_previous,
       },
-    }
+    },
   },
   pickers = {
     find_files = {
       hidden = true,
     },
-  }
+  },
+  extensions = {
+    file_browser = {
+      theme = 'dropdown',
+    },
+  },
 }
 EOF
