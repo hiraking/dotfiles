@@ -7,7 +7,7 @@ nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 lua << EOF
 local telescope = require("telescope")
 local telescopeConfig = require("telescope.config")
-
+local fb_actions = require "telescope".extensions.file_browser.actions
 -- Clone the default Telescope configuration
 local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 
@@ -26,11 +26,12 @@ require('telescope').setup{
     mappings = {
       n = {
         ["<esc>"] = require('telescope.actions').close,
+        ["q"] = require('telescope.actions').close,
       },
       i = {
-        ["<esc>"] = require('telescope.actions').close,
+        -- ["<esc>"] = require('telescope.actions').close,
         ["<C-a>"] = require('telescope.actions').send_to_qflist + require('telescope.actions').open_qflist,
-        ["<C-q>"] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist,
+        ["<C-s>"] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist,
         ["<C-n>"] = false,
         ["<C-p>"] = false,
         ["<C-j>"] = require('telescope.actions').move_selection_next,
@@ -45,7 +46,20 @@ require('telescope').setup{
   },
   extensions = {
     file_browser = {
-      theme = 'dropdown',
+      hidden = true,
+      cwd_to_path = true,
+      display_stat = false,
+      mappings = {
+        ["n"] = {
+          ["l"] = fb_actions.open,
+          ["h"] = fb_actions.goto_parent_dir,
+          ["H"] = fb_actions.toggle_hidden,
+        },
+        ["i"] = {
+          ["C-l"] = fb_actions.goto_cwd,
+          ["C-h"] = fb_actions.goto_parent_dir,
+        },
+      },
     },
   },
 }

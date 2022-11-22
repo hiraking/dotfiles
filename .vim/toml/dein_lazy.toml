@@ -15,13 +15,37 @@ hook_add = '''
 nnoremap <C-e> <cmd>WinResizerStartResize<CR>
 '''
 
+[[plugins]]
+repo = 'nvim-telescope/telescope-frecency.nvim'
+depends = ['sqlite.lua']
+on_cmd = 'Telescope frecency'
+hook_add = '''
+nnoremap <Leader>fr <cmd>Telescope frecency<CR>
+lua << EOF
+require('telescope').load_extension('frecency')
+EOF
+'''
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-file-browser.nvim'
+on_cmd = 'Telescope file_browser'
+hook_add = '''
+nnoremap <Leader>fb <cmd>Telescope file_browser<CR>
+lua << EOF
+require('telescope').load_extension('file_browser')
+EOF
+'''
 
 [[plugins]]
 repo = 'windwp/nvim-autopairs'
 on_event = 'InsertEnter'
 lua_source = '''
-require("nvim-autopairs").setup {}
+require("nvim-autopairs").setup()
 '''
+
+[[plugins]]
+repo = 'sindrets/diffview.nvim'
+on_cmd = ['DiffviewOpen', 'DiffviewFileHistory']
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
@@ -40,6 +64,14 @@ nnoremap <leader>nq <cmd>NvimTreeClose<CR>
 '''
 hook_source = '''
 source ~/.vim/plugins/nvimtree_rc.vim
+'''
+
+[[plugins]]
+repo = 'famiu/bufdelete.nvim'
+on_cmd = 'Bdelete'
+hook_add = '''
+nnoremap <Leader>x <cmd>Bdelete<cr>
+nnoremap <Leader>X <cmd>Bdelete!<cr>
 '''
 
 [[plugins]]
