@@ -2,10 +2,24 @@
 repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
 hook_add = '''
-nnoremap <silent><Leader>r <cmd>QuickRun<CR>
+nnoremap <silent><Leader>q <cmd>QuickRun<CR>
 '''
 hook_source = '''
 source ~/.vim/plugins/quickrun_rc.vim
+'''
+
+[[plugins]]
+repo = 'TimUntersberger/neogit'
+on_cmd = 'Neogit'
+hook_add = '''
+nnoremap <silent><Leader>g <cmd>Neogit<CR>
+'''
+lua_source = '''
+require('neogit').setup {
+  integrations = {
+    diffview = true,
+  },
+}
 '''
 
 [[plugins]]
@@ -37,6 +51,35 @@ EOF
 '''
 
 [[plugins]]
+repo = 'kevinhwang91/nvim-bqf'
+on_ft = 'qf'
+lua_source = '''
+require("bqf").setup {
+  func_map = {
+    pscrollup = '<C-u>',
+    pscrolldown = '<C-d>',
+  },
+}
+'''
+
+[[plugins]]
+repo = 'haya14busa/vim-edgemotion'
+on_map = '<Plug>(edgemotion-'
+hook_add = '''
+nnoremap <C-j> <Plug>(edgemotion-j)
+nnoremap <C-k> <Plug>(edgemotion-k)
+vnoremap <C-j> <Plug>(edgemotion-j)
+vnoremap <c-k> <plug>(edgemotion-k)
+'''
+
+[[plugins]]
+repo = 'gabrielpoca/replacer.nvim'
+on_ft = 'qf'
+hook_add = '''
+nnoremap <silent><leader>rp :<C-u>lua require("replacer").run()<cr>
+'''
+
+[[plugins]]
 repo = 'windwp/nvim-autopairs'
 on_event = 'InsertEnter'
 lua_source = '''
@@ -46,12 +89,33 @@ require("nvim-autopairs").setup()
 [[plugins]]
 repo = 'sindrets/diffview.nvim'
 on_cmd = ['DiffviewOpen', 'DiffviewFileHistory']
+on_source = 'neogit'
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
 on_map = '<Plug>(fern-action-'
 hook_source = '''
 source ~/.vim/plugins/fern_rc.vim
+'''
+
+[[plugins]]
+repo = 'petertriho/nvim-scrollbar'
+depends = ['nvim-hlslens', 'gitsigns.nvim']
+on_event = 'BufRead'
+lua_source = '''
+require("scrollbar").setup {
+  handle = { color = '#384863' },
+  marks = {
+    Search = { color = '#ffffff'},
+    GitAdd = { color = '#41bdbf' },
+    GitChange = { color = '#c9c542'},
+    GitDelete = { color = '#bd3c56'},
+  },
+  handlers = {
+    cursor = false,
+    gitsigns = true,
+  },
+}
 '''
 
 [[plugins]]
@@ -129,12 +193,24 @@ require'nvim-treesitter.configs'.setup {
   },
   ignore_install = { "phpdoc", "help" },
   ensure_installed = 'all',
+  matchup = {
+    enable = true,
+    disable_virtual_text = true,
+  },
 }
 '''
 
 [[plugins]]
 repo = 'nvim-treesitter/playground'
 on_source = 'nvim-treesitter'
+
+[[plugins]]
+repo = 'andymass/vim-matchup'
+on_source = 'nvim-treesitter'
+hook_add = '''
+inoremap <C-p> <ESC><Plug>(matchup-%)
+nnoremap <C-p> <Plug>(matchup-%)
+'''
 
 [[plugins]]
 repo = 'markonm/traces.vim'

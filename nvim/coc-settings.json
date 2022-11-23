@@ -5,4 +5,6 @@
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.snippetIndicator": " ►",
+    "jedi.enable": true,
+    "jedi.startupMessage": false,
 }

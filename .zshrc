@@ -2,8 +2,7 @@
 autoload -U promptinit; promptinit
 prompt pure
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/Users/hiraking/Storage/bin:$PATH"
 
 setopt no_beep
 # >>> conda initialize >>>
@@ -44,3 +43,6 @@ alias ls='ls -G'
 alias ll='ls -alG'
 alias run='g++ main.cpp&&./a.out'
 alias notebook='/Users/hiraking/opt/anaconda3/bin/jupyter_mac.command'
+alias vim!='vim'
+alias vim='nvim'
+alias v='nvim'

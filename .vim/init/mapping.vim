@@ -16,11 +16,6 @@ nnoremap L $
 vnoremap H ^
 vnoremap L $
 
-nnoremap <silent><Leader>j :noh<CR>
-
-nnoremap <silent><Leader>c :%y<CR>
-
-
 " terminal
 augroup TermGroup
   autocmd TermOpen * :startinsert

@@ -39,17 +39,38 @@ require('gitsigns').setup()
 '''
 
 [[plugins]]
+repo = 'RRethy/vim-illuminate'
+lua_add = '''
+require('illuminate').configure({
+  delay = 300,
+})
+'''
+
+[[plugins]]
+repo = 'ggandor/leap.nvim'
+lua_add = '''
+require('leap').add_default_mappings()
+'''
+
+[[plugins]]
 repo = 'kylechui/nvim-surround'
 lua_add = '''
 require('nvim-surround').setup()
 '''
 
 [[plugins]]
-repo = 'RRethy/vim-illuminate'
+repo = 'phaazon/hop.nvim'
+rev = 'v2'
+hook_add = '''
+nnoremap <silent><leader>hw :<C-u>HopWord<CR>
+nnoremap <silent><leader>hl :<C-u>HopLineStart<CR>
+nnoremap <silent><leader>hc :<C-u>HopChar1<CR>
+vnoremap <silent><leader>hw :<C-u>HopWord<CR>
+vnoremap <silent><leader>hl :<C-u>HopLineStart<CR>
+vnoremap <silent><leader>hc :<C-u>HopChar1<CR>
+'''
 lua_add = '''
-require('illuminate').configure({
-  delay = 200,
-})
+require('hop').setup()
 '''
 
 [[plugins]]
@@ -68,6 +89,30 @@ require('indent_blankline').setup()
 repo = 'tiagovla/scope.nvim'
 lua_add = '''
 require("scope").setup()
+'''
+
+[[plugins]]
+repo = 'kevinhwang91/nvim-hlslens'
+lua_add = '''
+require('hlslens').setup {
+  calm_down = true,
+  nearest_only = true,
+}
+
+local kopts = {noremap = true, silent = true}
+
+vim.api.nvim_set_keymap('n', 'n',
+    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+vim.api.nvim_set_keymap('n', 'N',
+    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    kopts)
+vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+
+vim.api.nvim_set_keymap('n', '<Leader>l', ':noh<CR>', kopts)
 '''
 
 [[plugins]]

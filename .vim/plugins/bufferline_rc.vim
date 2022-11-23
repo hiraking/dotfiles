@@ -1,3 +1,6 @@
+nnoremap <silent><leader>pb :<C-u>BufferLinePick<CR>
+nnoremap <silent><leader>pc :<C-u>BufferLinePickClose<CR>
+
 lua << EOF
 local selected_buffer_fg = '#dddec1'
 local selected_buffer_bg = '#43545c'
