@@ -2,8 +2,8 @@ nnoremap <silent><leader>pb :<C-u>BufferLinePick<CR>
 nnoremap <silent><leader>pc :<C-u>BufferLinePickClose<CR>
 
 lua << EOF
-local selected_buffer_fg = '#dddec1'
-local selected_buffer_bg = '#43545c'
+local selected_buffer_fg = '#eeeeee'
+local selected_buffer_bg = '#264387'
 local unselected_buffer_fg = '#9aadb5'
 local unselected_buffer_bg = '#233036'
 local background_color = '#0d1c21'
@@ -48,13 +48,13 @@ require("bufferline").setup {
       fg = selected_buffer_fg,
       bg = selected_buffer_bg,
       bold = true,
-      italic = true,
+      italic = false,
     },
     buffer_selected = {
       fg = selected_buffer_fg,
       bg = selected_buffer_bg,
       bold = true,
-      italic = true,
+      italic = false,
     },
     fill = {
       bg = background_color,
@@ -74,17 +74,17 @@ require("bufferline").setup {
     duplicate_selected = {
       fg = selected_buffer_fg,
       bg = selected_buffer_bg,
-      italic = true,
+      italic = false,
     },
     duplicate_visible = {
       fg = selected_buffer_fg,
       bg = selected_buffer_bg,
-      italic = true,
+      italic = false,
     },
     duplicate = {
       fg = unselected_buffer_fg,
       bg = unselected_buffer_bg,
-      italic = true,
+      italic = false,
     },
     pick = {
       fg = pick_fg,
