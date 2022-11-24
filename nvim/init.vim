@@ -1,3 +1,4 @@
+let g:mapleader = ' '
 " disable unnecessary default plugins
 let g:loaded_gzip              = 1
 let g:loaded_tar               = 1
@@ -58,4 +59,3 @@ endif
 
 set rtp+=~/.vim/
 runtime! init/*.vim
-

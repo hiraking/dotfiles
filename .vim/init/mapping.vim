@@ -7,6 +7,7 @@ inoremap <silent> jj <ESC>
 inoremap <silent> ;; <ESC>A;
 
 nnoremap <CR> A<CR><Esc>
+nnoremap <Leader>w :<C-u>w<CR>
 
 nnoremap <C-h> <cmd>bp<CR>
 nnoremap <C-l> <cmd>bn<CR>

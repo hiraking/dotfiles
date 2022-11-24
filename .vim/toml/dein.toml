@@ -136,7 +136,3 @@ repo = 'folke/tokyonight.nvim'
 
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
-
-[[plugins]]
-repo = 'tpope/vim-fugitive'
-
