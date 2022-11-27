@@ -47,8 +47,21 @@ for (${1:int i = 0}; ${2:i < N}; ${3:i++}) {
 	$4
 }
 endsnippet
+
 snippet fori "for (0, N)" b
 for (int ${1:i} = 0; $1 < ${2:MAX}; $1++) {
+	$3
+}
+endsnippet
+
+snippet foreach "for x in X" b
+for (auto ${1:x} : ${2:X}) {
+	$3
+}
+endsnippet
+
+snippet for1 "for [1, N]" b
+for (int ${1:i} = 1; $1 <= ${2:N}; $1++) {
 	$3
 }
 endsnippet
@@ -71,12 +84,6 @@ struct ${1:name} {
 };
 endsnippet
 
-snippet foreach "for x in X" b
-for (auto x : ${1:X}) {
-	$2
-}
-endsnippet
-
 snippet cout "cout << " b
 cout << $1
 endsnippet
@@ -90,7 +97,7 @@ vector<${1:int}> $2
 endsnippet
 
 snippet vvec "vector<vector<T>>" i
-vector<vector<${1:int}> > $2
+vector<vector<${1:int}> > ${2:v}(${3:H}, vector<$1>(${4:W}))$5
 endsnippet
 
 snippet pair "pair<T, T>" i
