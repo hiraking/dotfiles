@@ -2,23 +2,8 @@
 autoload -U promptinit; promptinit
 prompt pure
 
-export PATH="/Users/hiraking/Storage/bin:$PATH"
-
 setopt no_beep
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/hiraking/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/hiraking/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/hiraking/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/hiraking/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+
 # 補完機能を有効にする
 autoload -Uz compinit
 compinit -u
@@ -41,8 +26,33 @@ setopt correct
 
 alias ls='ls -G'
 alias ll='ls -alG'
+alias la='ls -aG'
+
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias dot='cd ~/dotfiles'
+alias zshrc='nvim ~/.zshrc'
+alias szsh='source ~/.zshrc'
+
+alias ga='git add'
+alias gd='git diff'
+alias gs='git status'
+alias gp='git push'
+alias gb='git branch'
+alias gco='git checkout'
+alias gf='git fetch'
+alias gc='git commit'
+
+alias g='grep'
+alias c='pbcopy'
+alias m='man'
 alias run='g++ main.cpp&&./a.out'
-alias notebook='/Users/hiraking/opt/anaconda3/bin/jupyter_mac.command'
-alias vim!='vim'
 alias vim='nvim'
 alias v='nvim'
+
+alias -g C='| pbcopy'
+alias -g G='| grep --color=auto'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g L='| less -R'
