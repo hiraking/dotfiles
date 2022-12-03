@@ -34,6 +34,16 @@ if (${1:flag}) cout << "YES" << endl;
 else cout << "NO" << endl;
 endsnippet
 
+snippet if "if" b
+if (${1:condition}) {
+	$2
+}
+endsnippet
+
+snippet if1 "if (condition) exp;" b
+if (${1:condition}) $2;
+endsnippet
+
 snippet sort "sort(v.begin(), v.end())" b
 sort(${1:v}.begin(), $1.end());
 endsnippet
