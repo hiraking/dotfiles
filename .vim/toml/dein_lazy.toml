@@ -27,6 +27,8 @@ repo = 'simeji/winresizer'
 on_cmd = 'WinResizerStartResize'
 hook_add = '''
 nnoremap <C-e> <cmd>WinResizerStartResize<CR>
+let g:winresizer_vert_resize=1
+let g:winresizer_horiz_resize=1
 '''
 
 [[plugins]]
