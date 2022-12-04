@@ -5,7 +5,7 @@
     "suggest.triggerAfterInsertEnter": true,
     "suggest.acceptSuggestionOnCommitCharacter": true,
     "suggest.snippetIndicator": " ►",
-    "clangd.fallbackFlags": ["-std=c++17"],
+    "clangd.fallbackFlags": ["-std=c++17", "-I/Users/hiraking/Desktop/AtCoder"],
     "jedi.enable": true,
     "jedi.startupMessage": false,
 }

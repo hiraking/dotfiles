@@ -24,6 +24,11 @@ zstyle ':completion:*' list-colors ''
 # コマンドのスペルを訂正
 setopt correct
 
+alias vim='nvim'
+alias v='nvim'
+alias clip='pbcopy'
+alias m='man'
+
 alias ls='ls -G'
 alias ll='ls -alG'
 alias la='ls -aG'
@@ -35,6 +40,7 @@ alias dot='cd ~/dotfiles'
 alias zshrc='nvim ~/.zshrc'
 alias szsh='source ~/.zshrc'
 
+alias g='git'
 alias ga='git add'
 alias gd='git diff'
 alias gs='git status'
@@ -44,12 +50,12 @@ alias gco='git checkout'
 alias gf='git fetch'
 alias gc='git commit'
 
-alias g='grep'
-alias c='pbcopy'
-alias m='man'
-alias run='g++ main.cpp&&./a.out'
-alias vim='nvim'
-alias v='nvim'
+alias code='cd ~/Desktop/AtCoder'
+alias g++='g++ -std=c++17 -I/Users/hiraking/Desktop/AtCoder'
+alias rr='g++ main.cpp -std=c++17 -I/Users/hiraking/Desktop/AtCoder && ./a.out'
+alias pyr='python3 main.py'
+alias c='cat main.cpp | pbcopy'
+alias pyc='cat main.py | pbcopy'
 
 alias -g C='| pbcopy'
 alias -g G='| grep --color=auto'
