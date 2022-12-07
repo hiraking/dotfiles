@@ -1,5 +1,5 @@
 set termguicolors
-autocmd VimEnter * colorscheme tokyonight-moon
+colorscheme nightfox
 set t_ut=""
 
 if (&term =~ '^xterm' && &t_Co == 256)
