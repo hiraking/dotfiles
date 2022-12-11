@@ -1,7 +1,11 @@
 nnoremap j gj
 nnoremap k gk
+vnoremap j gj
+vnoremap k gk
 nnoremap J 5j
 nnoremap K 5k
+vnoremap J 5j
+vnoremap K 5k
 
 inoremap <silent> jj <ESC>
 inoremap <silent> ;; <ESC>A;

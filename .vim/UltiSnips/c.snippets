@@ -1,0 +1,19 @@
+snippet inc "#include <>" b
+#include <${1:stdio.h}>
+endsnippet
+
+snippet main "int main() {}" b
+int main() {
+    $1
+}
+endsnippet
+
+snippet struct "typedef struct s {} S" b
+typedef struct ${1:point} {
+    $3
+} ${2:Point};
+endsnippet
+
+snippet printf "printf" b
+printf("$1\n"$2);
+endsnippet

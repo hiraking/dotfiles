@@ -9,6 +9,10 @@ source ~/.vim/plugins/quickrun_rc.vim
 '''
 
 [[plugins]]
+repo = 'sindrets/diffview.nvim'
+on_source = 'neogit'
+
+[[plugins]]
 repo = 'TimUntersberger/neogit'
 on_cmd = 'Neogit'
 hook_add = '''
@@ -87,11 +91,6 @@ on_event = 'InsertEnter'
 lua_source = '''
 require("nvim-autopairs").setup()
 '''
-
-[[plugins]]
-repo = 'sindrets/diffview.nvim'
-on_cmd = ['DiffviewOpen', 'DiffviewFileHistory']
-on_source = 'neogit'
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
