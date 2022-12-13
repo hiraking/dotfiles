@@ -1,5 +1,5 @@
 set termguicolors
-colorscheme nightfox
+colorscheme tokyonight-moon
 set t_ut=""
 
 if (&term =~ '^xterm' && &t_Co == 256)

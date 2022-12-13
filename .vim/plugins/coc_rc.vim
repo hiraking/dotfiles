@@ -8,6 +8,7 @@ let g:coc_global_extensions = [
 " delays and poor user experience.
 set updatetime=300
 
+highlight CocInlayHint guifg=#627985
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
@@ -22,6 +23,7 @@ inoremap <silent><expr> <TAB>
       \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
 
+inoremap <C-k> <Nop>
 inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 
