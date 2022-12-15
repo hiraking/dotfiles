@@ -1,9 +1,9 @@
 set termguicolors
-colorscheme tokyonight-moon
 set t_ut=""
 
 if (&term =~ '^xterm' && &t_Co == 256)
-  set t_ut= | set ttyscroll=1
+  set t_ut= |
+  set ttyscroll=1
 endif
 
 " cursor
@@ -63,3 +63,4 @@ set incsearch
 set wrapscan
 set hlsearch
 
+autocmd QuickFixCmdPost *grep* cwindow

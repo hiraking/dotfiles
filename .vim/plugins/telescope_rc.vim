@@ -1,9 +1,3 @@
-nnoremap <C-x> <CR>
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>rg <cmd>lua require('telescope.builtin').registers()<cr>
-
 " c.f. https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes
 lua << EOF
 local telescope = require("telescope")
@@ -28,6 +22,8 @@ require('telescope').setup{
       n = {
         ["<esc>"] = require('telescope.actions').close,
         ["q"] = require('telescope.actions').close,
+        ["<C-a>"] = require('telescope.actions').send_to_qflist + require('telescope.actions').open_qflist,
+        ["<C-s>"] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist,
       },
       i = {
         -- ["<esc>"] = require('telescope.actions').close,
@@ -52,7 +48,6 @@ require('telescope').setup{
       display_stat = false,
       mappings = {
         ["n"] = {
-          ["l"] = fb_actions.open,
           ["h"] = fb_actions.goto_parent_dir,
           ["H"] = fb_actions.toggle_hidden,
         },
@@ -64,4 +59,7 @@ require('telescope').setup{
     },
   },
 }
+require('telescope').load_extension('file_browser')
+require('telescope').load_extension('fzf')
+require('telescope').load_extension('frecency')
 EOF

@@ -1,25 +1,38 @@
 nnoremap j gj
 nnoremap k gk
-vnoremap j gj
-vnoremap k gk
+xnoremap j gj
+xnoremap k gk
 nnoremap J 5j
 nnoremap K 5k
-vnoremap J 5j
-vnoremap K 5k
+xnoremap J 5j
+xnoremap K 5k
 
 inoremap <silent> jj <ESC>
 inoremap <silent> ;; <ESC>A;
 
-nnoremap <CR> A<CR><Esc>
+nnoremap <CR> A<CR><ESC>
 nnoremap <Leader>w :<C-u>w<CR>
+nnoremap <Leader>l :noh<CR>
 
 nnoremap <C-h> <cmd>bp<CR>
 nnoremap <C-l> <cmd>bn<CR>
 
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-u> <ESC>cc
+
+
 nnoremap H ^
 nnoremap L $
-vnoremap H ^
-vnoremap L $
+xnoremap H ^
+xnoremap L $
+xnoremap <Tab> >
+
+nnoremap m cc
+nnoremap + <C-a>
+nnoremap - <C-x>
+nnoremap p [p
+nnoremap P [P
 
 " terminal
 augroup TermGroup

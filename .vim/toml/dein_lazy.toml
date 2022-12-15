@@ -9,14 +9,59 @@ source ~/.vim/plugins/quickrun_rc.vim
 '''
 
 [[plugins]]
+repo = 'lukas-reineke/indent-blankline.nvim'
+on_event = 'BufRead'
+lua_source = '''
+require('indent_blankline').setup()
+'''
+
+[[plugins]]
+repo = 'kylechui/nvim-surround'
+on_map = {n = ['ys', 'ds', 'cs'], x = ['<Leader>s']}
+lua_source = '''
+require('nvim-surround').setup {
+  keymaps = {
+    visual =  "<Leader>s",
+  },
+}
+'''
+
+[[plugins]]
+repo = 'numtostr/comment.nvim'
+on_map = {n = ['gc', 'gb'], x = ['gc', 'gb']}
+lua_source = '''
+require('Comment').setup()
+'''
+
+[[plugins]]
+repo = 'kevinhwang91/nvim-hlslens'
+on_map = {n = ['/', '?', '#', '*', 'g#', 'g*']}
+hook_source = '''
+source ~/.vim/plugins/hlslens_rc.vim
+'''
+
+[[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+on_event = 'BufRead'
+hook_source = '''
+nnoremap <Leader>gd <C-u><Cmd>Gitsigns diffthis<CR>
+nnoremap <Leader>gp <C-u><Cmd>Gitsigns preview_hunk<CR>
+nnoremap <Leader>gq <C-u><Cmd>Gitsigns setqflist<CR>
+lua << EOF
+require('gitsigns').setup()
+EOF
+'''
+
+[[plugins]]
 repo = 'sindrets/diffview.nvim'
 on_source = 'neogit'
 
 [[plugins]]
 repo = 'TimUntersberger/neogit'
+depends = ['plenary.nvim']
 on_cmd = 'Neogit'
 hook_add = '''
-nnoremap <silent><Leader>g <cmd>Neogit<CR>
+nnoremap <silent><Leader>gn <cmd>Neogit<CR>
 '''
 lua_source = '''
 require('neogit').setup {
@@ -36,25 +81,46 @@ let g:winresizer_horiz_resize=1
 '''
 
 [[plugins]]
-repo = 'nvim-telescope/telescope-frecency.nvim'
-depends = ['sqlite.lua']
-on_cmd = 'Telescope frecency'
+repo = 'nvim-lua/plenary.nvim'
+on_source = ['telescope.nvim', 'neogit']
+
+[[plugins]]
+repo = 'tami5/sqlite.lua'
+on_source = 'telescope.nvim'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+depends = ['plenary.nvim']
+on_lua = 'telescope'
+hook_source = '''
+source ~/.vim/plugins/telescope_rc.vim
+'''
 hook_add = '''
-nnoremap <Leader>fr <cmd>Telescope frecency<CR>
-lua << EOF
-require('telescope').load_extension('frecency')
-EOF
+nnoremap <Leader>fr <Cmd>lua require('telescope').extensions.frecency.frecency()<CR>
+nnoremap <Leader>fb <Cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>
+nnoremap <Leader>ff <Cmd>lua require('telescope.builtin').find_files()<CR>
+nnoremap <Leader>fg <Cmd>lua require('telescope.builtin').live_grep()<CR>
+nnoremap <Leader>b <Cmd>lua require('telescope.builtin').buffers()<CR>
+nnoremap <Leader>tk <Cmd>lua require('telescope.builtin').keymaps()<CR>
+nnoremap <Leader>ts <Cmd>lua require('telescope.builtin').search_history()<CR>
+nnoremap <Leader>th <Cmd>lua require('telescope.builtin').command_history()<CR>
+nnoremap <Leader>tc <Cmd>lua require('telescope.builtin').commands()<CR>
+nnoremap <Leader>tr <Cmd>lua require('telescope.builtin').registers()<CR>
 '''
 
 [[plugins]]
+repo = 'nvim-telescope/telescope-fzf-native.nvim'
+on_source = 'telescope.nvim'
+build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' 
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-frecency.nvim'
+depends = ['sqlite.lua']
+on_source = 'telescope.nvim'
+
+[[plugins]]
 repo = 'nvim-telescope/telescope-file-browser.nvim'
-on_cmd = 'Telescope file_browser'
-hook_add = '''
-nnoremap <Leader>fb <cmd>Telescope file_browser<CR>
-lua << EOF
-require('telescope').load_extension('file_browser')
-EOF
-'''
+on_source = 'telescope.nvim'
 
 [[plugins]]
 repo = 'kevinhwang91/nvim-bqf'
@@ -76,6 +142,26 @@ nnoremap <C-j> <Plug>(edgemotion-j)
 nnoremap <C-k> <Plug>(edgemotion-k)
 vnoremap <C-j> <Plug>(edgemotion-j)
 vnoremap <c-k> <plug>(edgemotion-k)
+'''
+
+[[plugins]]
+repo = 'ggandor/leap.nvim'
+on_map = {nx = ['s', 'S', 'gs']}
+lua_source = '''
+require('leap').add_default_mappings()
+'''
+
+[[plugins]]
+repo = 'phaazon/hop.nvim'
+rev = 'v2'
+on_lua = 'hop'
+hook_add = '''
+nnoremap <silent><leader>hl <C-u><Cmd>lua require('hop').hint_lines()<CR>
+nnoremap <silent><leader>hc <C-u><Cmd>lua require('hop').hint_char1()<CR>
+nnoremap <silent><leader>hw <C-u><Cmd>lua require('hop').hint_words()<CR>
+'''
+lua_source = '''
+require('hop').setup()
 '''
 
 [[plugins]]
@@ -101,7 +187,7 @@ source ~/.vim/plugins/fern_rc.vim
 
 [[plugins]]
 repo = 'petertriho/nvim-scrollbar'
-depends = ['nvim-hlslens', 'gitsigns.nvim']
+depends = ['gitsigns.nvim']
 on_event = 'BufRead'
 lua_source = '''
 require("scrollbar").setup {
@@ -141,7 +227,7 @@ nnoremap <Leader>X <cmd>Bdelete!<cr>
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
-on_map = {nxo = '<Plug>'}
+on_map = {nxo = '<Plug>(clever-'}
 hook_add = '''
 let g:clever_f_not_overwrites_standard_mappings = 1
 let g:clever_f_mark_direct = 1
@@ -225,3 +311,6 @@ on_ft = ['html', 'css']
 repo = 'mbbill/undotree'
 on_cmd = 'UndotreeToggle'
 
+[[plugins]]
+repo = 'dstein64/vim-startuptime'
+on_cmd = 'StartupTime'

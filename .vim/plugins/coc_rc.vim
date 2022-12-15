@@ -8,7 +8,6 @@ let g:coc_global_extensions = [
 " delays and poor user experience.
 set updatetime=300
 
-highlight CocInlayHint guifg=#627985
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
@@ -24,12 +23,13 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 inoremap <C-k> <Nop>
-inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
-inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
+inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<Down>"
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-s> coc#pum#visible() ? coc#pum#cancel() : "\<BS>"
 
 let g:coc_snippet_next = '<tab>'
 
