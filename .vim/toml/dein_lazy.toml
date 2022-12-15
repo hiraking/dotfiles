@@ -27,7 +27,7 @@ require('nvim-surround').setup {
 '''
 
 [[plugins]]
-repo = 'numtostr/comment.nvim'
+repo = 'numToStr/Comment.nvim'
 on_map = {n = ['gc', 'gb'], x = ['gc', 'gb']}
 lua_source = '''
 require('Comment').setup()
@@ -44,9 +44,11 @@ source ~/.vim/plugins/hlslens_rc.vim
 repo = 'lewis6991/gitsigns.nvim'
 on_event = 'BufRead'
 hook_source = '''
-nnoremap <Leader>gd <C-u><Cmd>Gitsigns diffthis<CR>
-nnoremap <Leader>gp <C-u><Cmd>Gitsigns preview_hunk<CR>
-nnoremap <Leader>gq <C-u><Cmd>Gitsigns setqflist<CR>
+nnoremap <Leader>gd :<C-u>Gitsigns diffthis<CR>
+nnoremap <Leader>gn :<C-u>Gitsigns next_hunk<CR>
+nnoremap <Leader>gN :<C-u>Gitsigns prev_hunk<CR>
+nnoremap <Leader>gp :<C-u>Gitsigns preview_hunk<CR>
+nnoremap <Leader>gq :<C-u>Gitsigns setqflist<CR>
 lua << EOF
 require('gitsigns').setup()
 EOF
@@ -61,7 +63,7 @@ repo = 'TimUntersberger/neogit'
 depends = ['plenary.nvim']
 on_cmd = 'Neogit'
 hook_add = '''
-nnoremap <silent><Leader>gn <cmd>Neogit<CR>
+nnoremap <silent><Leader>gg <cmd>Neogit<CR>
 '''
 lua_source = '''
 require('neogit').setup {
@@ -311,6 +313,3 @@ on_ft = ['html', 'css']
 repo = 'mbbill/undotree'
 on_cmd = 'UndotreeToggle'
 
-[[plugins]]
-repo = 'dstein64/vim-startuptime'
-on_cmd = 'StartupTime'
