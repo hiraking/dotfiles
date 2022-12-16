@@ -27,6 +27,8 @@ set showcmd
 set backspace=indent,eol,start
 set clipboard=unnamed
 set visualbell t_vb=
+set updatetime=300
+set helplang=ja
 set wildmode=list:longest
 
 " visual
@@ -36,6 +38,7 @@ set virtualedit=onemore
 set showmatch
 set scrolloff=5
 set completeopt=menuone,noinsert,noselect
+set signcolumn=yes
 
 " statusline
 " set statusline=%F

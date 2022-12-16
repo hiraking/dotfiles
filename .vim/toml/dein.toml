@@ -2,14 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-source = 'release'
-build = 'coc#util#install()'
-hook_add = '''
-source ~/.vim/plugins/coc_rc.vim
-'''
-
-[[plugins]]
 repo = 'RRethy/vim-illuminate'
 lua_add = '''
 require('illuminate').configure({
@@ -19,12 +11,6 @@ require('illuminate').configure({
 
 [[plugins]]
 repo = 'nvim-tree/nvim-web-devicons'
-
-[[plugins]]
-repo = 'tiagovla/scope.nvim'
-lua_add = '''
-require("scope").setup()
-'''
 
 [[plugins]]
 repo = 'nvim-lualine/lualine.nvim'
@@ -45,5 +31,3 @@ repo = 'EdenEast/nightfox.nvim'
 [[plugins]]
 repo = 'folke/tokyonight.nvim'
 
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'

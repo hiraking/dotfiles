@@ -9,6 +9,27 @@ source ~/.vim/plugins/quickrun_rc.vim
 '''
 
 [[plugins]]
+repo = 'tiagovla/scope.nvim'
+on_event = ['CmdlineEnter', 'BufRead']
+lua_source = '''
+require("scope").setup()
+'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+source = 'release'
+build = 'coc#util#install()'
+on_ft = ['c', 'cpp', 'python']
+on_event = 'InsertEnter'
+hook_source = '''
+source ~/.vim/plugins/coc_rc.vim
+'''
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+on_cmd = 'help'
+
+[[plugins]]
 repo = 'lukas-reineke/indent-blankline.nvim'
 on_event = 'BufRead'
 lua_source = '''
@@ -77,7 +98,7 @@ require('neogit').setup {
 repo = 'simeji/winresizer'
 on_cmd = 'WinResizerStartResize'
 hook_add = '''
-nnoremap <C-e> <cmd>WinResizerStartResize<CR>
+nnoremap <C-e> <Cmd>WinResizerStartResize<CR>
 let g:winresizer_vert_resize=1
 let g:winresizer_horiz_resize=1
 '''
@@ -143,14 +164,22 @@ hook_add = '''
 nnoremap <C-j> <Plug>(edgemotion-j)
 nnoremap <C-k> <Plug>(edgemotion-k)
 vnoremap <C-j> <Plug>(edgemotion-j)
-vnoremap <c-k> <plug>(edgemotion-k)
+vnoremap <C-k> <Plug>(edgemotion-k)
 '''
 
 [[plugins]]
 repo = 'ggandor/leap.nvim'
 on_map = {nx = ['s', 'S', 'gs']}
 lua_source = '''
-require('leap').add_default_mappings()
+local leap = require('leap')
+leap.add_default_mappings()
+leap.opts.safe_labels =   { "s", "f", "n", "u", "t",
+      "S", "F", "N", "L", "H", "M", "U", "G", "T", "Z"} 
+leap.opts.labels =     { "s", "f", "n", "j", "k", "l", "h",
+      "o", "d", "w", "e", "m", "b", "u", "v", "r", "g", "t",
+      "c", "x", "z", "S", "F", "N", "J", "K", "L", "H", "O",
+      "D", "W", "E", "M", "B", "U", "V", "R", "G", "T", "C",
+      } 
 '''
 
 [[plugins]]
@@ -158,9 +187,9 @@ repo = 'phaazon/hop.nvim'
 rev = 'v2'
 on_lua = 'hop'
 hook_add = '''
-nnoremap <silent><leader>hl <C-u><Cmd>lua require('hop').hint_lines()<CR>
-nnoremap <silent><leader>hc <C-u><Cmd>lua require('hop').hint_char1()<CR>
-nnoremap <silent><leader>hw <C-u><Cmd>lua require('hop').hint_words()<CR>
+nnoremap <silent><leader>hl <Cmd>lua require('hop').hint_lines()<CR>
+nnoremap <silent><leader>hc <Cmd>lua require('hop').hint_char1()<CR>
+nnoremap <silent><leader>hw <Cmd>lua require('hop').hint_words()<CR>
 '''
 lua_source = '''
 require('hop').setup()
@@ -170,7 +199,7 @@ require('hop').setup()
 repo = 'gabrielpoca/replacer.nvim'
 on_ft = 'qf'
 hook_add = '''
-nnoremap <silent><leader>rp :<C-u>lua require("replacer").run()<cr>
+nnoremap <silent><leader>rp :<C-u>lua require("replacer").run()<CR>
 '''
 
 [[plugins]]
@@ -247,6 +276,8 @@ omap t <Plug>(clever-f-t)
 nmap T <Plug>(clever-f-T)
 xmap T <Plug>(clever-f-T)
 omap T <Plug>(clever-f-T)
+map ; <Plug>(clever-f-repeat-forward)
+map , <Plug>(clever-f-repeat-back)
 '''
 
 [[plugins]]
