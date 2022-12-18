@@ -23,7 +23,7 @@ inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<Down>"
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <C-s> coc#pum#visible() ? coc#pum#cancel() : "\<BS>"
+inoremap <silent><expr> <C-s> coc#pum#visible() ? coc#pum#cancel() : "\<Left>"
 
 let g:coc_snippet_next = '<tab>'
 

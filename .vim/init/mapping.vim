@@ -10,17 +10,27 @@ xnoremap K 5k
 inoremap <silent> jj <ESC>
 inoremap <silent> ;; <ESC>A;
 
-nnoremap <CR> A<CR><ESC>
+nnoremap <Leader><CR> A<CR><ESC>
 nnoremap <Leader>w :<C-u>w<CR>
-nnoremap <Leader>l :noh<CR>
+nnoremap <silent><Leader>l :noh<CR>
 
-nnoremap <C-h> <cmd>bp<CR>
-nnoremap <C-l> <cmd>bn<CR>
 
-inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-u> <ESC>cc
 
+nnoremap ; <C-^>
+nnoremap <silent>]q :<C-u>cnext<CR>
+nnoremap <silent>[q :<C-u>cprevious<CR>
+nnoremap <silent>]Q :<C-u>clast<CR>
+nnoremap <silent>[Q :<C-u>cfirst<CR>
+nnoremap <silent><C-h> <cmd>bp<CR>
+nnoremap <silent><C-l> <cmd>bn<CR>
+nnoremap <silent>]b :blast<CR>
+nnoremap <silent>[b :bfirst<CR>
+nnoremap <silent>]a :<C-u>next<CR>
+nnoremap <silent>[a :<C-u>previous<CR>
+nnoremap <silent>]A :<C-u>last<CR>
+nnoremap <silent>[A :<C-u>first<CR>
 
 nnoremap H ^
 nnoremap L $
@@ -31,8 +41,9 @@ xnoremap <Tab> >
 nnoremap m cc
 nnoremap + <C-a>
 nnoremap - <C-x>
-nnoremap p [p
-nnoremap P [P
+
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
 
 " terminal
 augroup TermGroup

@@ -276,8 +276,9 @@ omap t <Plug>(clever-f-t)
 nmap T <Plug>(clever-f-T)
 xmap T <Plug>(clever-f-T)
 omap T <Plug>(clever-f-T)
-map ; <Plug>(clever-f-repeat-forward)
-map , <Plug>(clever-f-repeat-back)
+map <CR> <Plug>(clever-f-repeat-forward)
+map <BS> <Plug>(clever-f-repeat-back)
+map <C-n> <Plug>(clever-f-repeat-back)
 '''
 
 [[plugins]]
