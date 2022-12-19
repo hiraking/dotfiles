@@ -44,6 +44,7 @@ nnoremap - <C-x>
 
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " terminal
 augroup TermGroup

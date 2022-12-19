@@ -107,12 +107,8 @@ struct ${1:name} {
 };
 endsnippet
 
-snippet cout "cout << " b
+snippet cout "cout << " i
 cout << $1
-endsnippet
-
-snippet endl "<< endl" i
-<< endl;
 endsnippet
 
 snippet cin "cin >> " b
@@ -123,8 +119,41 @@ snippet vec "vector<T> v" i
 vector<${1:int}> $2
 endsnippet
 
+snippet vi "vector<int>" i
+vector<int> $1
+endsnippet
+
+snippet vll "vector<ll>" i
+vector<ll> $1
+endsnippet
+
+snippet vc "vector<char>" i
+vector<char> $1
+endsnippet
+
+snippet vs "vector<string>" i
+vector<string> $1
+endsnippet
+
+snippet vii "vector<ii>" i
+vector<ii> $1
+endsnippet
+
+snippet vvi "vector<vector<int>>" i
+vector<vector<int>> $1
+endsnippet
+
+snippet vvll "vector<vector<ll>>" i
+vector<vector<ll>> $1
+endsnippet
+
+snippet vvc "vector<vector<char>>" i
+vector<vector<char>> $1
+endsnippet
+
+endsnippet
 snippet vvec "vector<vector<T>>" i
-vector<vector<${1:int}>> ${2:v}(${3:H}, vector<$1>(${4:W}))$5
+vector<vector<${1:int}>> ${2:v}
 endsnippet
 
 snippet pair "pair<T, T>" i
@@ -341,5 +370,30 @@ void dfs(const ${2:vector<vector<int> >} &G, int v) {
         if ($1[next_v]) continue;
         dfs(G, next_v);
     }
+}
+endsnippet
+
+snippet bipartite "return if G is a bipartite graph" b
+void dfs(int v, vector<vector<int>> &G, vector<int> &color, bool &ans) {
+    for(auto v2 : G[v]) {
+        if(color[v2] != -1) {
+            if(color[v2] == color[v]) {ans = false;}
+            continue;
+        }
+        color[v2] = 1 - color[v];
+        dfs(v2, G, color, ans);
+    }
+    return;
+}
+
+bool is_bipartite(vector<vector<int>> &G, int N) {
+    bool ret = true;
+    vector<int> color(N + 1, -1);
+    for (int i = 1; i <= N; i++) {
+        if (color[i] != -1) continue;
+        color[i] = 0;
+        dfs(i, G, color, ret);
+    }
+    return ret;
 }
 endsnippet

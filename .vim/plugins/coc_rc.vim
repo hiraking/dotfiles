@@ -51,13 +51,13 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> ? :call ShowDocumentation()<CR>
+nnoremap <silent><Leader>d :<C-u>call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
+  " else
+  "   call feedkeys('K', 'in')
   endif
 endfunction
 
@@ -134,15 +134,15 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <Leader>ca  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <Leader>ca  :<C-u>CocList diagnostics<CR>
 " Manage extensions.
-nnoremap <silent><nowait> <Leader>ce  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <Leader>ce  :<C-u>CocList extensions<CR>
 " Show commands.
-nnoremap <silent><nowait> <Leader>cc  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <Leader>cc  :<C-u>CocList commands<CR>
 " Find symbol of current document.c
-nnoremap <silent><nowait> <Leader>co  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <Leader>co  :<C-u>CocList outline<CR>
 " Edit user's ultisnips snippets of current document filetype.
-nnoremap <silent><nowait> <Leader>cs  :<C-u>:CocCommand snippets.editSnippets<cr>
+nnoremap <silent><nowait> <Leader>cs  :<C-u>:CocCommand snippets.editSnippets<CR>
 " Do default action for next item.c
 nnoremap <silent><nowait> <Leader>cj  :<C-u>CocNext<CR>
 " Do default action for previous ictem.

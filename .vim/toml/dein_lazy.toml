@@ -187,7 +187,7 @@ repo = 'phaazon/hop.nvim'
 rev = 'v2'
 on_lua = 'hop'
 hook_add = '''
-nnoremap <silent><leader>hl <Cmd>lua require('hop').hint_lines()<CR>
+nnoremap <silent><leader>hl <Cmd>lua require('hop').hint_lines_skip_whitespace()<CR>
 nnoremap <silent><leader>hc <Cmd>lua require('hop').hint_char1()<CR>
 nnoremap <silent><leader>hw <Cmd>lua require('hop').hint_words()<CR>
 '''
@@ -240,9 +240,10 @@ require("scrollbar").setup {
 repo = 'nvim-tree/nvim-tree.lua'
 on_cmd = ['NvimTreeOpen', 'NvimTreeFocus', 'NvimTreeFindFile']
 hook_add = '''
-nnoremap <leader>nn <cmd>NvimTreeFocus<CR>
-nnoremap <leader>nf <cmd>NvimTreeFindFile<CR>
-nnoremap <leader>nq <cmd>NvimTreeClose<CR>
+nnoremap <silent><leader>nn :<C-u>NvimTreeFocus<CR>
+nnoremap <silent><leader>nf :<C-u>NvimTreeFindFile<CR>
+nnoremap <silent><leader>nq :<C-u>NvimTreeClose<CR>
+nmap <silent><leader>no :<C-u>NvimTreeOpen %:h<CR>
 '''
 hook_source = '''
 source ~/.vim/plugins/nvimtree_rc.vim
