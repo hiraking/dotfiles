@@ -38,7 +38,7 @@ xnoremap H ^
 xnoremap L $
 xnoremap <Tab> >
 
-nnoremap m cc
+nnoremap <C-s> cc
 nnoremap + <C-a>
 nnoremap - <C-x>
 

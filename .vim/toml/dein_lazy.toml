@@ -49,7 +49,7 @@ require('nvim-surround').setup {
 
 [[plugins]]
 repo = 'numToStr/Comment.nvim'
-on_map = {n = ['gc', 'gb'], x = ['gc', 'gb']}
+on_map = {nx = ['gc', 'gb']}
 lua_source = '''
 require('Comment').setup()
 '''
@@ -129,6 +129,7 @@ nnoremap <Leader>ts <Cmd>lua require('telescope.builtin').search_history()<CR>
 nnoremap <Leader>th <Cmd>lua require('telescope.builtin').command_history()<CR>
 nnoremap <Leader>tc <Cmd>lua require('telescope.builtin').commands()<CR>
 nnoremap <Leader>tr <Cmd>lua require('telescope.builtin').registers()<CR>
+nnoremap <Leader>tm <Cmd>lua require('telescope.builtin').marks()<CR>
 '''
 
 [[plugins]]
@@ -206,7 +207,10 @@ nnoremap <silent><leader>rp :<C-u>lua require("replacer").run()<CR>
 repo = 'windwp/nvim-autopairs'
 on_event = 'InsertEnter'
 lua_source = '''
-require("nvim-autopairs").setup()
+require("nvim-autopairs").setup {
+  map_c_h = true,
+  map_c_w = true,
+}
 '''
 
 [[plugins]]
@@ -219,7 +223,7 @@ source ~/.vim/plugins/fern_rc.vim
 [[plugins]]
 repo = 'petertriho/nvim-scrollbar'
 depends = ['gitsigns.nvim']
-on_event = 'BufRead'
+on_cmd = 'ScrollbarShow'
 lua_source = '''
 require("scrollbar").setup {
   handle = { color = '#384863' },
@@ -346,3 +350,18 @@ on_ft = ['html', 'css']
 repo = 'mbbill/undotree'
 on_cmd = 'UndotreeToggle'
 
+[[plugins]]
+repo = 'karb94/neoscroll.nvim'
+on_map = {nx = ['<C-u>', '<C-d>']}
+lua_source = '''
+require('neoscroll').setup {
+  mappings = {},
+}
+local t = {}
+t['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '100'}}
+t['<C-d>'] = {'scroll', {'vim.wo.scroll', 'true', '100'}}
+t['zt'] = {'zt', {'100'}}
+t['zz'] = {'zz', {'100'}}
+t['zb'] = {'zb', {'100'}}
+require('neoscroll.config').set_mappings(t)
+'''
