@@ -200,7 +200,7 @@ require('hop').setup()
 repo = 'gabrielpoca/replacer.nvim'
 on_ft = 'qf'
 hook_add = '''
-nnoremap <silent><leader>rp :<C-u>lua require("replacer").run()<CR>
+nnoremap <silent><leader>rp :<C-u>lua require("replacer").run({rename_files = false})<CR>
 '''
 
 [[plugins]]
