@@ -13,7 +13,17 @@ inoremap <silent> ;; <ESC>A;
 nnoremap <Leader><CR> A<CR><ESC>
 nnoremap <Leader>w :<C-u>w<CR>
 nnoremap <silent><Leader>l :noh<CR>
+nnoremap <silent><Leader>l :noh<CR>
+set pastetoggle=<Leader>pt
 
+" 行を移動
+nnoremap <C-Up> "zdd<Up>"zP
+nnoremap <C-Down> "zdd"zp
+" 複数行を移動
+vnoremap <C-Up> "zx<Up>"zP`[V`]
+vnoremap <C-Down> "zx"zp`[V`]
+" ヴィジュアルモードで連続で置換可能にする
+xnoremap p "_xP
 
 inoremap <C-l> <Right>
 inoremap <C-u> <ESC>cc
@@ -23,10 +33,18 @@ nnoremap <silent>]q :<C-u>cnext<CR>
 nnoremap <silent>[q :<C-u>cprevious<CR>
 nnoremap <silent>]Q :<C-u>clast<CR>
 nnoremap <silent>[Q :<C-u>cfirst<CR>
+nnoremap <silent><Leader>qo :<C-u>copen<CR>
+nnoremap <silent><Leader>qq :<C-u>cclose<CR>
+nnoremap <silent><Leader>qp :<C-u>colder<CR>
+nnoremap <silent><Leader>qn :<C-u>cnewer<CR>
+nnoremap <silent>]l :<C-u>lnext<CR>
+nnoremap <silent>[l :<C-u>lprevious<CR>
+nnoremap <silent>]L :<C-u>llast<CR>
+nnoremap <silent>[L :<C-u>lfirst<CR>
 nnoremap <silent><C-h> <cmd>bp<CR>
 nnoremap <silent><C-l> <cmd>bn<CR>
-nnoremap <silent>]b :blast<CR>
-nnoremap <silent>[b :bfirst<CR>
+nnoremap <silent>]b :<C-u>blast<CR>
+nnoremap <silent>[b :<C-u>bfirst<CR>
 nnoremap <silent>]a :<C-u>next<CR>
 nnoremap <silent>[a :<C-u>previous<CR>
 nnoremap <silent>]A :<C-u>last<CR>
@@ -37,6 +55,8 @@ nnoremap L $
 xnoremap H ^
 xnoremap L $
 xnoremap <Tab> >
+nnoremap & :&&<CR>
+xnoremap & :&&<CR>
 
 nnoremap <C-s> cc
 nnoremap + <C-a>
@@ -44,6 +64,8 @@ nnoremap - <C-x>
 
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+cnoremap <C-s> <Left>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " terminal

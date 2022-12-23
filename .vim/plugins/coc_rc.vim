@@ -47,7 +47,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gm <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
@@ -62,10 +62,19 @@ function! ShowDocumentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nmap <silent><Leader>rn :<C-u>call MyRename()<CR>
+
+function! MyRename()
+  if CocAction('hasProvider', 'rename')
+    call CocActionAsync('rename')
+  else
+    let cword = expand('<cword>')
+    call feedkeys('b:%s/'.'\<'.cword.'\>')
+  endif
+endfunction
 
 " Formatting selected code.
 "xmap <leader>f  <Plug>(coc-format-selected)

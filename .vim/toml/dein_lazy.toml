@@ -2,7 +2,7 @@
 repo = 'thinca/vim-quickrun'
 on_cmd = 'QuickRun'
 hook_add = '''
-nnoremap <silent><Leader>q <cmd>QuickRun<CR>
+nnoremap <silent><Leader>qr <cmd>QuickRun<CR>
 '''
 hook_source = '''
 source ~/.vim/plugins/quickrun_rc.vim
@@ -30,13 +30,6 @@ repo = 'vim-jp/vimdoc-ja'
 on_cmd = 'help'
 
 [[plugins]]
-repo = 'lukas-reineke/indent-blankline.nvim'
-on_event = 'BufRead'
-lua_source = '''
-require('indent_blankline').setup()
-'''
-
-[[plugins]]
 repo = 'kylechui/nvim-surround'
 on_map = {n = ['ys', 'ds', 'cs'], x = ['<Leader>s']}
 lua_source = '''
@@ -55,6 +48,10 @@ require('Comment').setup()
 '''
 
 [[plugins]]
+repo = 'haya14busa/vim-asterisk'
+on_source = 'nvim-hlslens'
+
+[[plugins]]
 repo = 'kevinhwang91/nvim-hlslens'
 on_map = {n = ['/', '?', '#', '*', 'g#', 'g*']}
 hook_source = '''
@@ -70,6 +67,7 @@ nnoremap <Leader>gn :<C-u>Gitsigns next_hunk<CR>
 nnoremap <Leader>gN :<C-u>Gitsigns prev_hunk<CR>
 nnoremap <Leader>gp :<C-u>Gitsigns preview_hunk<CR>
 nnoremap <Leader>gq :<C-u>Gitsigns setqflist<CR>
+nnoremap <Leader>gr :<C-u>Gitsigns reset_hunk<CR>
 lua << EOF
 require('gitsigns').setup()
 EOF
@@ -104,6 +102,15 @@ let g:winresizer_horiz_resize=1
 '''
 
 [[plugins]]
+repo = 'RRethy/vim-illuminate'
+on_event = 'BufRead'
+lua_source = '''
+require('illuminate').configure({
+  delay = 300,
+})
+'''
+
+[[plugins]]
 repo = 'nvim-lua/plenary.nvim'
 on_source = ['telescope.nvim', 'neogit']
 
@@ -130,6 +137,7 @@ nnoremap <Leader>th <Cmd>lua require('telescope.builtin').command_history()<CR>
 nnoremap <Leader>tc <Cmd>lua require('telescope.builtin').commands()<CR>
 nnoremap <Leader>tr <Cmd>lua require('telescope.builtin').registers()<CR>
 nnoremap <Leader>tm <Cmd>lua require('telescope.builtin').marks()<CR>
+nnoremap <Leader>tj <Cmd>lua require('telescope.builtin').jumplist()<CR>
 '''
 
 [[plugins]]
@@ -154,6 +162,7 @@ require("bqf").setup {
   func_map = {
     pscrollup = '<C-u>',
     pscrolldown = '<C-d>',
+    split = '<C-s>'
   },
 }
 '''
@@ -191,6 +200,9 @@ hook_add = '''
 nnoremap <silent><leader>hl <Cmd>lua require('hop').hint_lines_skip_whitespace()<CR>
 nnoremap <silent><leader>hc <Cmd>lua require('hop').hint_char1()<CR>
 nnoremap <silent><leader>hw <Cmd>lua require('hop').hint_words()<CR>
+xnoremap <silent><leader>hl <Cmd>lua require('hop').hint_lines_skip_whitespace()<CR>
+xnoremap <silent><leader>hc <Cmd>lua require('hop').hint_char1()<CR>
+xnoremap <silent><leader>hw <Cmd>lua require('hop').hint_words()<CR>
 '''
 lua_source = '''
 require('hop').setup()
@@ -365,3 +377,33 @@ t['zz'] = {'zz', {'100'}}
 t['zb'] = {'zb', {'100'}}
 require('neoscroll.config').set_mappings(t)
 '''
+
+[[plugins]]
+repo = 'chentoast/marks.nvim'
+on_cmd = 'MarksToggleSigns'
+lua_source = '''
+require'marks'.setup{
+  mappings = {
+    next = ']m',
+    prev = '[m',
+  },
+}
+'''
+hook_add = '''
+nnoremap <silent><Leader>mt <Cmd>MarksToggleSigns<CR>
+nnoremap <silent><Leader>mb <Cmd>MarksListBuf<CR>
+nnoremap <silent><Leader>ma <Cmd>MarksListAll<CR>
+nnoremap <silent><Leader>mg <Cmd>MarksListGlobal<CR>
+'''
+
+[[plugins]]
+repo = 'tpope/vim-abolish'
+on_cmd = 'Subvert'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+on_source = 'vim-textobj-entire'
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+on_map = {n = ['c', 'd', 'v']}
