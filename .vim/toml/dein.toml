@@ -2,14 +2,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'RRethy/vim-illuminate'
-lua_add = '''
-require('illuminate').configure({
-  delay = 300,
-})
-'''
-
-[[plugins]]
 repo = 'nvim-tree/nvim-web-devicons'
 
 [[plugins]]
@@ -23,6 +15,12 @@ repo = 'akinsho/bufferline.nvim'
 tag = "v3.*"
 hook_add = '''
 source ~/.vim/plugins/bufferline_rc.vim
+'''
+
+[[plugins]]
+repo = 'lukas-reineke/indent-blankline.nvim'
+lua_source = '''
+require('indent_blankline').setup()
 '''
 
 [[plugins]]
