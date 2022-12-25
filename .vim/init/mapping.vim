@@ -11,9 +11,8 @@ inoremap <silent> jj <ESC>
 inoremap <silent> ;; <ESC>A;
 
 nnoremap <Leader><CR> A<CR><ESC>
-nnoremap <Leader>w :<C-u>w<CR>
-nnoremap <silent><Leader>l :noh<CR>
-nnoremap <silent><Leader>l :noh<CR>
+nnoremap <silent><Leader>w <Cmd>write<CR>
+nnoremap <silent><Leader>l :<C-u>noh<CR>
 set pastetoggle=<Leader>pt
 
 " 行を移動
@@ -29,26 +28,26 @@ inoremap <C-l> <Right>
 inoremap <C-u> <ESC>cc
 
 nnoremap ; <C-^>
-nnoremap <silent>]q :<C-u>cnext<CR>
-nnoremap <silent>[q :<C-u>cprevious<CR>
-nnoremap <silent>]Q :<C-u>clast<CR>
-nnoremap <silent>[Q :<C-u>cfirst<CR>
-nnoremap <silent><Leader>qo :<C-u>copen<CR>
-nnoremap <silent><Leader>qq :<C-u>cclose<CR>
-nnoremap <silent><Leader>qp :<C-u>colder<CR>
-nnoremap <silent><Leader>qn :<C-u>cnewer<CR>
-nnoremap <silent>]l :<C-u>lnext<CR>
-nnoremap <silent>[l :<C-u>lprevious<CR>
-nnoremap <silent>]L :<C-u>llast<CR>
-nnoremap <silent>[L :<C-u>lfirst<CR>
-nnoremap <silent><C-h> <cmd>bp<CR>
-nnoremap <silent><C-l> <cmd>bn<CR>
-nnoremap <silent>]b :<C-u>blast<CR>
-nnoremap <silent>[b :<C-u>bfirst<CR>
-nnoremap <silent>]a :<C-u>next<CR>
-nnoremap <silent>[a :<C-u>previous<CR>
-nnoremap <silent>]A :<C-u>last<CR>
-nnoremap <silent>[A :<C-u>first<CR>
+nnoremap <silent>]q <Cmd>cnext<CR>
+nnoremap <silent>[q <Cmd>cprevious<CR>
+nnoremap <silent>]Q <Cmd>clast<CR>
+nnoremap <silent>[Q <Cmd>cfirst<CR>
+nnoremap <silent><Leader>qo <Cmd>copen<CR>
+nnoremap <silent><Leader>qq <Cmd>cclose<CR>
+nnoremap <silent><Leader>qp <Cmd>colder<CR>
+nnoremap <silent><Leader>qn <Cmd>cnewer<CR>
+nnoremap <silent>]l <Cmd>lnext<CR>
+nnoremap <silent>[l <Cmd>lprevious<CR>
+nnoremap <silent>]L <Cmd>llast<CR>
+nnoremap <silent>[L <Cmd>lfirst<CR>
+nnoremap <silent><C-h> <Cmd>bp<CR>
+nnoremap <silent><C-l> <Cmd>bn<CR>
+nnoremap <silent>]b <Cmd>blast<CR>
+nnoremap <silent>[b <Cmd>bfirst<CR>
+nnoremap <silent>]a <Cmd>next<CR>
+nnoremap <silent>[a <Cmd>previous<CR>
+nnoremap <silent>]A <Cmd>last<CR>
+nnoremap <silent>[A <Cmd>first<CR>
 
 nnoremap H ^
 nnoremap L $
@@ -76,48 +75,48 @@ augroup TermGroup
 augroup END
 
 tnoremap <ESC> <C-\><C-n>
-tnoremap <C-W>n       <cmd>new<cr>
-tnoremap <C-W><C-N>   <cmd>new<cr>
-tnoremap <C-W>q       <cmd>quit<cr>
-tnoremap <C-W><C-Q>   <cmd>quit<cr>
-tnoremap <C-W>c       <cmd>close<cr>
-tnoremap <C-W>o       <cmd>only<cr>
-tnoremap <C-W><C-O>   <cmd>only<cr>
-tnoremap <C-W><Down>  <cmd>wincmd j<cr>
-tnoremap <C-W><C-J>   <cmd>wincmd j<cr>
-tnoremap <C-W>j       <cmd>wincmd j<cr>
-tnoremap <C-W><Up>    <cmd>wincmd k<cr>
-tnoremap <C-W><C-K>   <cmd>wincmd k<cr>
-tnoremap <C-W>k       <cmd>wincmd k<cr>
-tnoremap <C-W><Left>  <cmd>wincmd h<cr>
-tnoremap <C-W><C-H>   <cmd>wincmd h<cr>
-tnoremap <C-W><BS>    <cmd>wincmd h<cr>
-tnoremap <C-W>h       <cmd>wincmd h<cr>
-tnoremap <C-W><Right> <cmd>wincmd l<cr>
-tnoremap <C-W><C-L>   <cmd>wincmd l<cr>
-tnoremap <C-W>l       <cmd>wincmd l<cr>
-tnoremap <C-W>w       <cmd>wincmd w<cr>
-tnoremap <C-W><C-W>   <cmd>wincmd w<cr>
-tnoremap <C-W>W       <cmd>wincmd W<cr>
-tnoremap <C-W>t       <cmd>wincmd t<cr>
-tnoremap <C-W><C-T>   <cmd>wincmd t<cr>
-tnoremap <C-W>b       <cmd>wincmd b<cr>
-tnoremap <C-W><C-B>   <cmd>wincmd b<cr>
-tnoremap <C-W>p       <cmd>wincmd p<cr>
-tnoremap <C-W><C-P>   <cmd>wincmd p<cr>
-tnoremap <C-W>P       <cmd>wincmd P<cr>
-tnoremap <C-W>r       <cmd>wincmd r<cr>
-tnoremap <C-W><C-R>   <cmd>wincmd r<cr>
-tnoremap <C-W>R       <cmd>wincmd R<cr>
-tnoremap <C-W>x       <cmd>wincmd x<cr>
-tnoremap <C-W><C-X>   <cmd>wincmd x<cr>
-tnoremap <C-W>K       <cmd>wincmd K<cr>
-tnoremap <C-W>J       <cmd>wincmd J<cr>
-tnoremap <C-W>H       <cmd>wincmd H<cr>
-tnoremap <C-W>L       <cmd>wincmd L<cr>
-tnoremap <C-W>T       <cmd>wincmd T<cr>
-tnoremap <C-W>=       <cmd>wincmd =<cr>
-tnoremap <C-W>-       <cmd>wincmd -<cr>
-tnoremap <C-W>+       <cmd>wincmd +<cr>
-tnoremap <C-W>z       <cmd>pclose<cr>
-tnoremap <C-W><C-Z>   <cmd>pclose<cr>
+tnoremap <C-W>n       <Cmd>new<CR>
+tnoremap <C-W><C-N>   <Cmd>new<CR>
+tnoremap <C-W>q       <Cmd>quit<CR>
+tnoremap <C-W><C-Q>   <Cmd>quit<CR>
+tnoremap <C-W>c       <Cmd>close<CR>
+tnoremap <C-W>o       <Cmd>only<CR>
+tnoremap <C-W><C-O>   <Cmd>only<CR>
+tnoremap <C-W><Down>  <Cmd>wincmd j<CR>
+tnoremap <C-W><C-J>   <Cmd>wincmd j<CR>
+tnoremap <C-W>j       <Cmd>wincmd j<CR>
+tnoremap <C-W><Up>    <Cmd>wincmd k<CR>
+tnoremap <C-W><C-K>   <Cmd>wincmd k<CR>
+tnoremap <C-W>k       <Cmd>wincmd k<CR>
+tnoremap <C-W><Left>  <Cmd>wincmd h<CR>
+tnoremap <C-W><C-H>   <Cmd>wincmd h<CR>
+tnoremap <C-W><BS>    <Cmd>wincmd h<CR>
+tnoremap <C-W>h       <Cmd>wincmd h<CR>
+tnoremap <C-W><Right> <Cmd>wincmd l<CR>
+tnoremap <C-W><C-L>   <Cmd>wincmd l<CR>
+tnoremap <C-W>l       <Cmd>wincmd l<CR>
+tnoremap <C-W>w       <Cmd>wincmd w<CR>
+tnoremap <C-W><C-W>   <Cmd>wincmd w<CR>
+tnoremap <C-W>W       <Cmd>wincmd W<CR>
+tnoremap <C-W>t       <Cmd>wincmd t<CR>
+tnoremap <C-W><C-T>   <Cmd>wincmd t<CR>
+tnoremap <C-W>b       <Cmd>wincmd b<CR>
+tnoremap <C-W><C-B>   <Cmd>wincmd b<CR>
+tnoremap <C-W>p       <Cmd>wincmd p<CR>
+tnoremap <C-W><C-P>   <Cmd>wincmd p<CR>
+tnoremap <C-W>P       <Cmd>wincmd P<CR>
+tnoremap <C-W>r       <Cmd>wincmd r<CR>
+tnoremap <C-W><C-R>   <Cmd>wincmd r<CR>
+tnoremap <C-W>R       <Cmd>wincmd R<CR>
+tnoremap <C-W>x       <Cmd>wincmd x<CR>
+tnoremap <C-W><C-X>   <Cmd>wincmd x<CR>
+tnoremap <C-W>K       <Cmd>wincmd K<CR>
+tnoremap <C-W>J       <Cmd>wincmd J<CR>
+tnoremap <C-W>H       <Cmd>wincmd H<CR>
+tnoremap <C-W>L       <Cmd>wincmd L<CR>
+tnoremap <C-W>T       <Cmd>wincmd T<CR>
+tnoremap <C-W>=       <Cmd>wincmd =<CR>
+tnoremap <C-W>-       <Cmd>wincmd -<CR>
+tnoremap <C-W>+       <Cmd>wincmd +<CR>
+tnoremap <C-W>z       <Cmd>pclose<CR>
+tnoremap <C-W><C-Z>   <Cmd>pclose<CR>

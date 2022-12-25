@@ -18,6 +18,7 @@ endif
 
 syntax on
 " setting
+language message C
 set fenc=utf-8
 set nobackup
 set noswapfile
@@ -36,7 +37,7 @@ set number
 set cursorline
 set virtualedit=onemore
 set showmatch
-set scrolloff=5
+set scrolloff=7
 set completeopt=menuone,noinsert,noselect
 set signcolumn=yes
 

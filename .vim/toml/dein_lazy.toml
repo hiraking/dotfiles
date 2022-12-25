@@ -62,12 +62,12 @@ source ~/.vim/plugins/hlslens_rc.vim
 repo = 'lewis6991/gitsigns.nvim'
 on_event = 'BufRead'
 hook_source = '''
-nnoremap <Leader>gd :<C-u>Gitsigns diffthis<CR>
-nnoremap <Leader>gn :<C-u>Gitsigns next_hunk<CR>
-nnoremap <Leader>gN :<C-u>Gitsigns prev_hunk<CR>
-nnoremap <Leader>gp :<C-u>Gitsigns preview_hunk<CR>
-nnoremap <Leader>gq :<C-u>Gitsigns setqflist<CR>
-nnoremap <Leader>gr :<C-u>Gitsigns reset_hunk<CR>
+nnoremap <Leader>gd <Cmd>Gitsigns diffthis<CR>
+nnoremap <Leader>gn <Cmd>Gitsigns next_hunk<CR>
+nnoremap <Leader>gN <Cmd>Gitsigns prev_hunk<CR>
+nnoremap <Leader>gp <Cmd>Gitsigns preview_hunk<CR>
+nnoremap <Leader>gq <Cmd>Gitsigns setqflist<CR>
+nnoremap <Leader>gr <Cmd>Gitsigns reset_hunk<CR>
 lua << EOF
 require('gitsigns').setup()
 EOF
@@ -86,6 +86,7 @@ nnoremap <silent><Leader>gg <cmd>Neogit<CR>
 '''
 lua_source = '''
 require('neogit').setup {
+  disable_commit_confirmation = true,
   integrations = {
     diffview = true,
   },
@@ -212,7 +213,7 @@ require('hop').setup()
 repo = 'gabrielpoca/replacer.nvim'
 on_ft = 'qf'
 hook_add = '''
-nnoremap <silent><leader>rp :<C-u>lua require("replacer").run({rename_files = false})<CR>
+nnoremap <silent><leader>rp <Cmd>lua require("replacer").run({rename_files = false})<CR>
 '''
 
 [[plugins]]
@@ -256,10 +257,10 @@ require("scrollbar").setup {
 repo = 'nvim-tree/nvim-tree.lua'
 on_cmd = ['NvimTreeOpen', 'NvimTreeFocus', 'NvimTreeFindFile']
 hook_add = '''
-nnoremap <silent><leader>nn :<C-u>NvimTreeFocus<CR>
-nnoremap <silent><leader>nf :<C-u>NvimTreeFindFile<CR>
-nnoremap <silent><leader>nq :<C-u>NvimTreeClose<CR>
-nmap <silent><leader>no :<C-u>NvimTreeOpen %:h<CR>
+nnoremap <silent><leader>nn <Cmd>NvimTreeFocus<CR>
+nnoremap <silent><leader>nf <Cmd>NvimTreeFindFile<CR>
+nnoremap <silent><leader>nq <Cmd>NvimTreeClose<CR>
+nmap <silent><leader>no <Cmd>NvimTreeOpen %:h<CR>
 '''
 hook_source = '''
 source ~/.vim/plugins/nvimtree_rc.vim
@@ -410,4 +411,4 @@ on_map = {n = ['c', 'd', 'v']}
 
 [[plugins]]
 repo = 'wellle/targets.vim'
-on_map = {n = ['c', 'd', 'v']}
+on_source = 'vim-textobj-entire'
