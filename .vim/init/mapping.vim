@@ -28,6 +28,7 @@ xnoremap p "_xP
 
 inoremap <C-l> <Right>
 inoremap <C-u> <ESC>cc
+nnoremap <Leader>rl <C-l><Cmd>set cmdheight=0<CR>
 
 nnoremap ; <C-^>
 nnoremap <silent>]q <Cmd>cnext<CR>
@@ -56,6 +57,7 @@ nnoremap L $
 xnoremap H ^
 xnoremap L $
 xnoremap <Tab> >
+xnoremap <S-Tab> <
 nnoremap & :&&<CR>
 xnoremap & :&&<CR>
 
