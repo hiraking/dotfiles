@@ -34,17 +34,17 @@ require('noice').setup{
     },
     mini = {
       timeout = 3000,
+      align = 'message-left',
       position = {
         row = -1,
-        col = "100%",
+        col = 0,
       },
     },
     confirm = {
       backend = "mini",
       position = {
         row = -1,
-        col = "100%",
-        -- col = 0,
+        col = 0,
       },
       size = "auto",
       border = {
@@ -89,6 +89,13 @@ require('noice').setup{
         find = "written",
       },
       opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_showmode",
+        find = "recording",
+      },
+      view = "confirm",
     },
     {
       filter = {
