@@ -56,6 +56,7 @@ alias gf='git fetch'
 alias gc='git commit'
 
 alias code='cd ~/Desktop/AtCoder'
+alias ac='cd ~/Desktop/AtCoder&&nvim main.cpp main.py'
 alias g++='g++ -std=c++17 -I/Users/hiraking/Desktop/AtCoder'
 alias rr='g++ main.cpp -std=c++17 -I/Users/hiraking/Desktop/AtCoder && ./a.out'
 alias pyr='python3 main.py'

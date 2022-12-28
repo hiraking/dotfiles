@@ -14,6 +14,8 @@ nnoremap <Leader><CR> A<CR><ESC>
 nnoremap <silent><Leader>w <Cmd>write<CR>
 nnoremap <silent><Leader>l :<C-u>noh<CR>
 set pastetoggle=<Leader>pt
+nnoremap <Leader>t2 <Cmd>set shiftwidth=2 tabstop=2<CR>
+nnoremap <Leader>t4 <Cmd>set shiftwidth=4 tabstop=4<CR>
 
 " 行を移動
 nnoremap <C-Up> "zdd<Up>"zP

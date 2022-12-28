@@ -412,3 +412,17 @@ on_map = {n = ['c', 'd', 'v']}
 [[plugins]]
 repo = 'wellle/targets.vim'
 on_source = 'vim-textobj-entire'
+
+[[plugins]]
+repo = 'MunifTanjim/nui.nvim'
+on_source = 'noice.nvim'
+
+[[plugins]]
+repo = 'folke/noice.nvim'
+on_event = 'CmdlineEnter'
+hook_add = '''
+set cmdheight=0
+'''
+hook_source = '''
+source ~/.vim/plugins/noice_rc.vim
+'''

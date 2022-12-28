@@ -28,12 +28,3 @@ repo = 'EdenEast/nightfox.nvim'
 
 [[plugins]]
 repo = 'folke/tokyonight.nvim'
-
-[[plugins]]
-repo = 'MunifTanjim/nui.nvim'
-
-[[plugins]]
-repo = 'folke/noice.nvim'
-hook_add = '''
-source ~/.vim/plugins/noice_rc.vim
-'''
