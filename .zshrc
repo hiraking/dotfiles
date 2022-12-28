@@ -24,6 +24,9 @@ zstyle ':completion:*' list-colors ''
 # コマンドのスペルを訂正
 setopt correct
 
+# ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+setopt hist_ignore_all_dups
+
 alias vim='nvim'
 alias v='nvim'
 alias clip='pbcopy'
@@ -39,6 +42,8 @@ alias ..3='cd ../../..'
 alias dot='cd ~/dotfiles'
 alias zshrc='nvim ~/.zshrc'
 alias szsh='source ~/.zshrc'
+alias historyall='history -E 1'
+alias psa='ps aux'
 
 alias g='git'
 alias ga='git add'
