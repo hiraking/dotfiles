@@ -30,7 +30,7 @@ set clipboard=unnamed
 set visualbell t_vb=
 set updatetime=300
 set helplang=ja
-set wildmode=list:longest
+set wildmode=list:longest,full
 
 " visual
 set number
