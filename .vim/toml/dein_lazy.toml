@@ -156,13 +156,6 @@ repo = 'nvim-telescope/telescope-file-browser.nvim'
 on_source = 'telescope.nvim'
 
 [[plugins]]
-repo = 'olacin/telescope-gitmoji.nvim'
-on_source = 'neogit'
-lua_source = '''
-require('telescope').load_extension('gitmoji')
-'''
-
-[[plugins]]
 repo = 'kevinhwang91/nvim-bqf'
 on_ft = 'qf'
 lua_source = '''
@@ -432,4 +425,11 @@ set cmdheight=0
 '''
 hook_source = '''
 source ~/.vim/plugins/noice_rc.vim
+'''
+
+[[plugins]]
+repo = 'windwp/nvim-ts-autotag'
+on_ft = ['html', 'xml', 'javascript', 'javascriptreact', 'jsx']
+lua_source = '''
+require('nvim-ts-autotag').setup()
 '''
