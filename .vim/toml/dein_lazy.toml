@@ -420,9 +420,6 @@ on_source = 'noice.nvim'
 [[plugins]]
 repo = 'folke/noice.nvim'
 on_event = 'CmdlineEnter'
-hook_add = '''
-set cmdheight=0
-'''
 hook_source = '''
 source ~/.vim/plugins/noice_rc.vim
 '''
