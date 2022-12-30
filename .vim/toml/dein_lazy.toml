@@ -316,26 +316,10 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = {'latex', 'help'},
   },
-  refactor = {
-    highlight_defintions = {
-      enable = true,
-    },
-    smart_rename = {
-      enable = true,
-      smart_rename = 'grr'
-    },
-    navigation = {
-      enable = true,
-      goto_definition = 'gnd',
-      list_definitions = 'gnD',
-    },
-  },
-  ignore_install = { "phpdoc", "help" },
-  ensure_installed = 'all',
-  matchup = {
+  indent = {
     enable = true,
-    disable_virtual_text = true,
   },
+  ensure_installed = 'all',
 }
 '''
 
