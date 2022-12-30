@@ -93,6 +93,13 @@ require('noice').setup{
     {
       filter = {
         event = "msg_show",
+        find = "tsserver",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
         find = "written",
       },
       opts = { skip = true },

@@ -410,7 +410,7 @@ source ~/.vim/plugins/noice_rc.vim
 
 [[plugins]]
 repo = 'windwp/nvim-ts-autotag'
-on_ft = ['html', 'xml', 'javascript', 'javascriptreact', 'jsx']
+on_ft = ['html', 'xml', 'javascript', 'javascriptreact', 'jsx', 'typescript']
 lua_source = '''
 require('nvim-ts-autotag').setup()
 '''
