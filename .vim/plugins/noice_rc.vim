@@ -86,6 +86,13 @@ require('noice').setup{
     {
       filter = {
         event = "msg_show",
+        find = "Scanning",
+      },
+      opts = { skip = true },
+    },
+    {
+      filter = {
+        event = "msg_show",
         find = "written",
       },
       opts = { skip = true },
