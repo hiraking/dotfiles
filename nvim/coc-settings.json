@@ -9,5 +9,7 @@
   "clangd.arguments": ["--fallback-style=none"],
   "jedi.enable": true,
   "jedi.startupMessage": false,
-  "coc.preferences.formatOnSave": ["javascript", "typescript", "css"]
+  "jedi.executable.command": "~/.pyenv/neovim/bin/jedi-language-server",
+  "coc.preferences.formatOnSave": ["javascript", "typescript", "css"],
+  "coc.preferences.renameFillCurrent": false
 }

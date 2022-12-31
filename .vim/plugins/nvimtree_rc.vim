@@ -3,6 +3,7 @@ require("nvim-tree").setup{
   hijack_netrw = true,
   open_on_setup = true,
   remove_keymaps = {"<BS>", "<C-e>"},
+  sort_by = "extension",
   view = {
     width = 25,
     preserve_window_proportions = true,
