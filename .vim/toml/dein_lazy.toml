@@ -318,6 +318,7 @@ require'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
+    disable = {'python'},
   },
   ensure_installed = 'all',
 }
@@ -413,4 +414,11 @@ repo = 'windwp/nvim-ts-autotag'
 on_ft = ['html', 'xml', 'javascript', 'javascriptreact', 'jsx', 'typescript']
 lua_source = '''
 require('nvim-ts-autotag').setup()
+'''
+
+[[plugins]]
+repo = 'Vimjas/vim-python-pep8-indent'
+on_ft = 'python'
+hook_source = '''
+autocmd FileType python setlocal indentexpr=GetPythonPEPIndent(v:lnum)
 '''

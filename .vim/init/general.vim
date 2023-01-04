@@ -17,6 +17,7 @@ if has('vim_starting')
 endif
 
 syntax on
+filetype plugin indent on
 " setting
 language message C
 set fenc=utf-8
