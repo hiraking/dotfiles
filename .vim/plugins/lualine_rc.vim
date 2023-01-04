@@ -40,7 +40,12 @@ require('lualine').setup {
         icon_only = true,
       },
     },
-    lualine_c = {'filename'},
+    lualine_c = {
+      { 
+        'filename',
+        path = 1,
+      }
+    },
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}
@@ -54,7 +59,12 @@ require('lualine').setup {
         icon_only = true,
       },
     },
-    lualine_c = {'filename'},
+    lualine_c = {
+      { 
+        'filename',
+        path = 1,
+      }
+    },
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}
