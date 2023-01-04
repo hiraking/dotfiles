@@ -10,6 +10,16 @@
   "jedi.enable": true,
   "jedi.startupMessage": false,
   "jedi.executable.command": "~/.pyenv/neovim/bin/jedi-language-server",
-  "coc.preferences.formatOnSave": ["javascript", "typescript", "css"],
+  "coc.preferences.formatOnSave": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "css"
+  ],
+  "typescript.updateImportsOnFileMove.enabled": "prompt",
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
   "coc.preferences.renameFillCurrent": false
 }
