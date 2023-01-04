@@ -332,7 +332,6 @@ on_source = 'nvim-treesitter'
 repo = 'andymass/vim-matchup'
 on_source = 'nvim-treesitter'
 hook_add = '''
-inoremap <C-p> <ESC><Plug>(matchup-%)
 nnoremap <C-p> <Plug>(matchup-%)
 '''
 
@@ -411,7 +410,7 @@ source ~/.vim/plugins/noice_rc.vim
 
 [[plugins]]
 repo = 'windwp/nvim-ts-autotag'
-on_ft = ['html', 'xml', 'javascript', 'javascriptreact', 'jsx', 'typescript']
+on_ft = ['html', 'xml', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact']
 lua_source = '''
 require('nvim-ts-autotag').setup()
 '''

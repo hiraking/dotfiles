@@ -28,6 +28,7 @@ xnoremap p "_xP
 
 inoremap <C-l> <Right>
 inoremap <C-u> <ESC>cc
+inoremap <C-v> <C-r>"
 nnoremap <Leader>rl <C-l><Cmd>set cmdheight=0<CR>
 
 nnoremap ; <C-^>
