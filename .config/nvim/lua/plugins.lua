@@ -1,3 +1,4 @@
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -5,7 +6,7 @@ if not vim.loop.fs_stat(lazypath) then
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
+        "--branch=stable",
         lazypath,
     })
 end
@@ -25,10 +26,12 @@ require("lazy").setup{
     {
         "rebelot/kanagawa.nvim",
         lazy = true,
+        event = "CursorHold",
     },
     {
         "EdenEast/nightfox.nvim",
         lazy = true,
+        event = "CursorHold",
     },
     {
         "neoclide/coc.nvim",
@@ -43,9 +46,13 @@ require("lazy").setup{
         dependencies = {
             "JoosepAlviste/nvim-ts-context-commentstring",
             "nvim-treesitter/nvim-treesitter-context",
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            "David-Kunz/treesitter-unit",
             "haringsrob/nvim_context_vt",
             "m-demare/hlargs.nvim",
             "andymass/vim-matchup",
+            "yioneko/nvim-yati",
+            "SmiteshP/nvim-gps",
         },
         config = function()
             require("nvim-treesitter.configs").setup {
@@ -61,23 +68,57 @@ require("lazy").setup{
                     enable = false,
                 },
                 ensure_installed = {
-                    'css','html', 'javascript',
-                    'lua', 'python', 'scss', 'tsx', 
-                    'typescript', 'vim', 'vue',
+                    "css","html", "javascript",
+                    "lua", "python", "scss", "tsx", 
+                    "typescript", "vim", "vue",
                 },
                 context_commentstring = {
                     enable = true,
                     enable_autocmd = false,
                 },
+                textobjects = {
+                    select = {
+                        enable = true,
+                        lookahead = true,
+                        keymaps = {
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                            ["ac"] = "@class.outer",
+                            ["ic"] = "@class.inner",
+                        },
+                    },
+                    move = {
+                        enable = true,
+                        set_jumps = true,
+                        goto_next_start = {
+                            ["]m"] = "@function.outer",
+                            ["]]"] = "@class.outer"
+                        },
+                        goto_next_end = {
+                            ["]M"] = "@function.outer",
+                            ["]["] = "@class.outer",
+                        },
+                        goto_previous_start = {
+                            ["[m"] = "@function.outer",
+                            ["[["] = "@class.outer",
+                        },
+                        goto_previous_end = {
+                            ["[M"] = "@function.outer",
+                            ["[]"] = "@class.outer",
+                        },
+                    },
+                },
             }
         end,
     },
     {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        lazy = true,
+    },
+    {
         "yioneko/nvim-yati",
         lazy = true,
-        event = "BufRead",
         version = "*",
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
     },
     {
         "nvim-treesitter/nvim-treesitter-context",
@@ -92,6 +133,27 @@ require("lazy").setup{
         lazy = true,
     },
     {
+        "David-Kunz/treesitter-unit",
+        lazy = true,
+        config = function()
+            vim.keymap.set("x", "iu", ":lua require('treesitter-unit').select()<CR>")
+            vim.keymap.set("x", "au", ":lua require('treesitter-unit').select(true)<CR>")
+            vim.keymap.set("o", "iu", ":<C-u>lua require('treesitter-unit').select()<CR>")
+            vim.keymap.set("o", "au", ":<C-u>lua require('treesitter-unit').select(true)<CR>")
+        end,
+    },
+    {
+        "mfussenegger/nvim-treehopper",
+        lazy = true,
+        keys = {
+            "c", "d", "y", "v",
+        },
+        config = function()
+            vim.keymap.set("o", "m", ":<C-u>lua require('tsht').nodes()<CR>")
+            vim.keymap.set("x", "m", ":lua require('tsht').nodes()<CR>")
+        end,
+    },
+    {
         "m-demare/hlargs.nvim",
         lazy = true,
         config = true,
@@ -102,12 +164,17 @@ require("lazy").setup{
     },
     {
         "nvim-lualine/lualine.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {
-            options = {
-                theme = "nord",
-            },
+        lazy = false,
+        dependencies = { 
+            "nvim-tree/nvim-web-devicons",
         },
+        config = function()
+            require("lualine").setup {
+                options = {
+                    theme = "nord",
+                },
+            }
+        end,
     },
     {
         "akinsho/bufferline.nvim",
@@ -144,6 +211,10 @@ require("lazy").setup{
     {
         "kylechui/nvim-surround",
         lazy = true,
+        keys = {
+            "ys", "ds", "cs",
+            { mode = "x", "<Leader>s" },
+        },
         opts = { visual = "<Leader>s" },
     },
     {
@@ -215,10 +286,25 @@ require("lazy").setup{
     },
     {
         "ggandor/leap.nvim",
-        lazy = false,
+        lazy = true,
+        keys = { "s", "S" },
         config = function()
             require("leap").add_default_mappings()
         end,
+    },
+    {
+        "ggandor/flit.nvim",
+        lazy = true,
+        config = true,
+        keys = { "f", "t" },
+        dependencies = {
+            "ggandor/leap.nvim",
+            "tpope/vim-repeat",
+        },
+    },
+    {
+        "tpope/vim-repeat",
+        lazy = true,
     },
     {
         "phaazon/hop.nvim",
@@ -242,7 +328,8 @@ require("lazy").setup{
             require("telescope").load_extension("lazy")
             require("telescope").load_extension("coc")
             require("telescope").load_extension("frecency")
-	end,
+            require("telescope").load_extension("neoclip")
+        end,
     },
     {
         "nvim-telescope/telescope-fzf-native.nvim",
@@ -261,6 +348,41 @@ require("lazy").setup{
         "nvim-telescope/telescope-frecency.nvim",
         lazy = true,
         dependencies = { "kkharji/sqlite.lua" }
+    },
+    {
+        "AckslD/nvim-neoclip.lua",
+        lazy = true,
+        key = { "y", { "y", mode = "x" } },
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "kkharji/sqlite.lua",
+        },
+        config = function()
+            require("neoclip").setup({
+                keys = {
+                    telescope = {
+                        i = {
+                            select = "<cr>",
+                            paste = "<c-p>",
+                            paste_behind = "<c-k>",
+                            replay = "<c-q>",
+                            delete = "<c-d>",
+                            edit = "<c-e>",
+                            custom = {},
+                        },
+                        n = {
+                            select = "<cr>",
+                            paste = { "p", "<C-p>" },
+                            paste_behind = "P",
+                            replay = "q",
+                            delete = "d",
+                            edit = "e",
+                            custom = {},
+                        },  
+                    }
+                }
+            })
+        end,
     },
     {
         "kkharji/sqlite.lua",
@@ -372,12 +494,12 @@ require("lazy").setup{
         "kana/vim-textobj-entire",
         lazy = true,
         dependencies = { "kana/vim-textobj-user" },
-        keys = { "c", "d", "v" },
+        keys = { "c", "d", "y", "v" },
     },
     {
         "wellle/targets.vim",
         lazy = true,
-        keys = { "c", "d", "v" },
+        keys = { "c", "d", "y", "v" },
     },
     {
         "windwp/nvim-ts-autotag",
@@ -391,5 +513,69 @@ require("lazy").setup{
             "typescript",
             "typescriptreact",
         },
+    },
+    {
+        "folke/todo-comments.nvim",
+        lazy = true,
+        event = "CursorHold",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = true,
+    },
+    {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 500
+            require("which-key").setup()
+        end,
+    },
+    {
+        "petertriho/nvim-scrollbar",
+        lazy = false,
+        opts = {
+            handlers = {
+                cursor = false,
+                gitsigns = true,
+                search = true,
+            },
+        },
+    },
+    {
+        "tversteeg/registers.nvim",
+        lazy = true,
+        keys = {
+            { "\"", mode = { "n", "v" } },
+            { "<C-r>", mode = "i" },
+        },
+        cmd = "Registers",
+        config = function()
+            local registers = require("registers")
+            registers.setup({
+                bind_keys = {
+                    normal    = registers.show_window({ mode = "motion" }),
+                    visual    = registers.show_window({ mode = "motion" }),
+                    insert    = registers.show_window({ mode = "insert" }),
+
+                    registers = registers.apply_register({ delay = 0.1 }),
+                    -- Immediately apply the selected register line when pressing the return key
+                    ["<CR>"]  = registers.apply_register(),
+                    -- Close the registers window when pressing the Esc key
+                    ["<Esc>"] = registers.close_window(),
+
+                    -- Move the cursor in the registers window down when pressing <C-n>
+                    ["<C-n>"] = registers.move_cursor_down(),
+                    -- Move the cursor in the registers window up when pressing <C-p>
+                    ["<C-p>"] = registers.move_cursor_up(),
+                    -- Move the cursor in the registers window down when pressing <C-j>
+                    ["<C-j>"] = registers.move_cursor_down(),
+                    -- Move the cursor in the registers window up when pressing <C-k>
+                    ["<C-k>"] = registers.move_cursor_up(),
+                    -- Clear the register of the highlighted line when pressing <DeL>
+                    ["<Del>"] = registers.clear_highlighted_register(),
+                    -- Clear the register of the highlighted line when pressing <BS>
+                    ["<BS>"]  = registers.clear_highlighted_register(),
+                },
+            })
+        end,
     },
 }
