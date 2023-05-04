@@ -39,14 +39,62 @@ require("lazy").setup{
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         lazy = true,
+        event = "BufRead",
+        dependencies = {
+            "JoosepAlviste/nvim-ts-context-commentstring",
+            "nvim-treesitter/nvim-treesitter-context",
+            "haringsrob/nvim_context_vt",
+            "m-demare/hlargs.nvim",
+            "andymass/vim-matchup",
+        },
         config = function()
             require("nvim-treesitter.configs").setup {
                 matchup = {
                     enable = true,
                 },
+                yati = {
+                    enable  = true,
+                    default_lazy = true,
+                    default_fallback = "auto",
+                },
+                indent = {
+                    enable = false,
+                },
+                ensure_installed = {
+                    'css','html', 'javascript',
+                    'lua', 'python', 'scss', 'tsx', 
+                    'typescript', 'vim', 'vue',
+                },
+                context_commentstring = {
+                    enable = true,
+                    enable_autocmd = false,
+                },
             }
         end,
-        event = "BufRead"
+    },
+    {
+        "yioneko/nvim-yati",
+        lazy = true,
+        event = "BufRead",
+        version = "*",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        lazy = true,
+    },
+    {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+        lazy = true,
+    },
+    {
+        "haringsrob/nvim_context_vt",
+        lazy = true,
+    },
+    {
+        "m-demare/hlargs.nvim",
+        lazy = true,
+        config = true,
     },
     {
         "nvim-tree/nvim-web-devicons",
@@ -101,6 +149,12 @@ require("lazy").setup{
     {
         "numToStr/Comment.nvim",
         lazy = true,
+        dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
+        config = function()
+            require('Comment').setup {
+                pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+            }
+        end,
     },
     {
         "kevinhwang91/nvim-hlslens",
@@ -272,19 +326,14 @@ require("lazy").setup{
     {
         "andymass/vim-matchup",
         lazy = true,
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
-        config = true,
-        keys = { "%", },
+        config = function()
+            vim.g.matchup_matchparen_offscreen = { method = "popup" }
+        end,
     },
     {
         "kevinhwang91/nvim-bqf",
         lazy = true,
         ft = "qf",
-    },
-    {
-        "vigoux/notifier.nvim",
-        lazy = false,
-        config = true,
     },
     {
         "MunifTanjim/nui.nvim",
@@ -302,12 +351,45 @@ require("lazy").setup{
                 },
             },
             presets = {
-                bottom_search = true, -- use a classic bottom cmdline for search
-                command_palette = true, -- position the cmdline and popupmenu together
-                long_message_to_split = true, -- long messages will be sent to a split
-                inc_rename = false, -- enables an input dialog for inc-rename.nvim
-                lsp_doc_border = false, -- add a border to hover docs and signature help
+                bottom_search = true,
+                command_palette = true,
+                long_message_to_split = true,
+                inc_rename = false,
+                lsp_doc_border = false,
             },
-        }
-    }
+        },
+    },
+    {
+        "tpope/vim-abolish",
+        lazy = true,
+        cmd = "Subvert",
+    },
+    {
+        "kana/vim-textobj-user",
+        lazy = true,
+    },
+    {
+        "kana/vim-textobj-entire",
+        lazy = true,
+        dependencies = { "kana/vim-textobj-user" },
+        keys = { "c", "d", "v" },
+    },
+    {
+        "wellle/targets.vim",
+        lazy = true,
+        keys = { "c", "d", "v" },
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        lazy = true,
+        config = true,
+        ft = {
+            "html",
+            "xml",
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+        },
+    },
 }
