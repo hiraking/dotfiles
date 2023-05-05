@@ -1,4 +1,3 @@
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     vim.fn.system({
@@ -69,7 +68,7 @@ require("lazy").setup{
                 },
                 ensure_installed = {
                     "css","html", "javascript",
-                    "lua", "python", "scss", "tsx", 
+                    "lua", "python", "scss", "tsx",
                     "typescript", "vim", "vue",
                 },
                 context_commentstring = {
@@ -165,7 +164,7 @@ require("lazy").setup{
     {
         "nvim-lualine/lualine.nvim",
         lazy = false,
-        dependencies = { 
+        dependencies = {
             "nvim-tree/nvim-web-devicons",
         },
         config = function()
@@ -378,7 +377,7 @@ require("lazy").setup{
                             delete = "d",
                             edit = "e",
                             custom = {},
-                        },  
+                        },
                     }
                 }
             })
@@ -557,25 +556,73 @@ require("lazy").setup{
                     insert    = registers.show_window({ mode = "insert" }),
 
                     registers = registers.apply_register({ delay = 0.1 }),
-                    -- Immediately apply the selected register line when pressing the return key
                     ["<CR>"]  = registers.apply_register(),
-                    -- Close the registers window when pressing the Esc key
                     ["<Esc>"] = registers.close_window(),
-
-                    -- Move the cursor in the registers window down when pressing <C-n>
                     ["<C-n>"] = registers.move_cursor_down(),
-                    -- Move the cursor in the registers window up when pressing <C-p>
                     ["<C-p>"] = registers.move_cursor_up(),
-                    -- Move the cursor in the registers window down when pressing <C-j>
                     ["<C-j>"] = registers.move_cursor_down(),
-                    -- Move the cursor in the registers window up when pressing <C-k>
                     ["<C-k>"] = registers.move_cursor_up(),
-                    -- Clear the register of the highlighted line when pressing <DeL>
                     ["<Del>"] = registers.clear_highlighted_register(),
-                    -- Clear the register of the highlighted line when pressing <BS>
                     ["<BS>"]  = registers.clear_highlighted_register(),
                 },
             })
+        end,
+    },
+    {
+        "AndrewRadev/linediff.vim",
+        lazy = true,
+        config = false,
+        cmd = "Linediff",
+    },
+    {
+        "chentoast/marks.nvim",
+        lazy = true,
+        config = true,
+        keys = { "m" },
+    },
+    {
+        "rmagatti/auto-session",
+        lazy = false,
+        opts = {
+            auto_session_suppress_dirs = {" ~/ "},
+        },
+    },
+    {
+        "tyru/capture.vim",
+        lazy = true,
+        config = false,
+        cmd = "Capture",
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        lazy = true,
+        config = true,
+        cmd = "ToggleTerm",
+        init = function()
+            vim.keymap.set("n", "<Leader>tf", "ToggleTerm direction=float")
+        end,
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        event = "BufRead",
+        config = true,
+    },
+    {
+        "LudoPinelli/comment-box.nvim",
+        cmd = { "CBllbox", "CBclbox", "CBline", "CBrline" },
+    },
+    {
+        "michaelb/sniprun",
+        build = "bash ./install.sh",
+        lazy = true,
+        cmd = "SnipRun",
+    },
+    {
+        "ntpeters/vim-better-whitespace",
+        event = "BufRead",
+        config = function()
+            vim.g.current_line_whitespace_disabled_hard=1
         end,
     },
 }
