@@ -1,4 +1,5 @@
 require("plugins")
+require("keymaps")
 
 vim.g.loaded_gzip              = 1
 vim.g.loaded_tar               = 1

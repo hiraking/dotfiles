@@ -34,8 +34,77 @@ require("lazy").setup{
     },
     {
         "neoclide/coc.nvim",
+        cond = true,
         branch = "release",
         lazy = false,
+    },
+    {
+        "neovim/nvim-lspconfig",
+        event = "BufRead",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
+        },
+        config = function()
+            -- mason.nvim -> mason-lspconfig.nvim -> lspconfig
+            require("mason").setup()
+            require("mason-lspconfig").setup {
+                -- ensure_installed = {
+                --     "csharp_ls", "clangd", "html", "cssls",
+                --     "jsonls", "tsserver", "lua_ls", "marksman", 
+                --     "jedi_language_server",
+                -- },
+            }
+
+            local lspconfig = require("lspconfig")
+            lspconfig.lua_ls.setup {}
+
+        end,
+    },
+    {
+        "williamboman/mason.nvim",
+        build = ":MasonUpdate",
+        lazy = true,
+    },
+    {
+        "williamboman/mason-lspconfig.nvim",
+        dependencies = { "williamboman/mason.nvim" },
+        lazy = true,
+    },
+    {
+        "nvimdev/lspsaga.nvim",
+        event = "LspAttach",
+        config = function()
+            require("lspsaga").setup({
+                symbol_in_winbar = {
+                    enable = false,
+                },
+            })
+        end,
+        dependencies = {
+            {"nvim-tree/nvim-web-devicons"},
+            {"nvim-treesitter/nvim-treesitter"},
+        },
+    },
+    {
+        "folke/lsp-colors.nvim",
+        event = "LspAttach",
+        config = true,
+    },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        event = "LspAttach",
+        config = function()
+            require("trouble").setup {
+
+            }
+        end,
+    },
+    {
+        "j-hui/fidget.nvim",
+        event = "BufRead",
+        config = true,
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -610,7 +679,7 @@ require("lazy").setup{
     },
     {
         "LudoPinelli/comment-box.nvim",
-        cmd = { "CBllbox", "CBclbox", "CBline", "CBrline" },
+        cmd = { "CBllbox", "CBlcbox", "CBline", "CBrline" },
     },
     {
         "michaelb/sniprun",
@@ -646,7 +715,7 @@ require("lazy").setup{
                         return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
                     end,
                 },
-            } 
+            }
 
             vim.keymap.set('n', '<F5>', function() dap.continue() end)
             vim.keymap.set('n', '<F10>', function() dap.step_over() end)
