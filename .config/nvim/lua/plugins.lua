@@ -15,6 +15,11 @@ vim.g.mapleader = " "
 
 require("lazy").setup{
     {
+        "neoclide/coc.nvim",
+        branch = "release",
+        cond = false,
+    },
+    {
         "folke/tokyonight.nvim",
         branch = "main",
         lazy = false,
@@ -33,31 +38,35 @@ require("lazy").setup{
         event = "CursorHold",
     },
     {
-        "neoclide/coc.nvim",
-        cond = true,
-        branch = "release",
-        lazy = false,
-    },
-    {
         "neovim/nvim-lspconfig",
         event = "BufRead",
         dependencies = {
             "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
+            "Decodetalkers/csharpls-extended-lsp.nvim",
         },
         config = function()
             -- mason.nvim -> mason-lspconfig.nvim -> lspconfig
             require("mason").setup()
             require("mason-lspconfig").setup {
-                -- ensure_installed = {
-                --     "csharp_ls", "clangd", "html", "cssls",
-                --     "jsonls", "tsserver", "lua_ls", "marksman", 
-                --     "jedi_language_server",
-                -- },
+                ensure_installed = {
+                    "csharp_ls", "clangd", "html", "cssls",
+                    "jsonls", "tsserver", "lua_ls", "marksman",
+                    "jedi_language_server",
+                },
             }
 
             local lspconfig = require("lspconfig")
             lspconfig.lua_ls.setup {}
+            lspconfig.jedi_language_server.setup {}
+
+            local config = {
+                handlers = {
+                    ["textDocument/definition"] = require('csharpls_extended').handler,
+                },
+                cmd = { "csharp-ls" },
+            }
+            lspconfig.csharp_ls.setup(config)
 
         end,
     },
@@ -69,6 +78,10 @@ require("lazy").setup{
     {
         "williamboman/mason-lspconfig.nvim",
         dependencies = { "williamboman/mason.nvim" },
+        lazy = true,
+    },
+    {
+        "Decodetalkers/csharpls-extended-lsp.nvim",
         lazy = true,
     },
     {
@@ -105,6 +118,60 @@ require("lazy").setup{
         "j-hui/fidget.nvim",
         event = "BufRead",
         config = true,
+    },
+    {
+        "hrsh7th/nvim-cmp",
+    },
+    {
+        "hrsh7th/cmp-nvim-lsp",
+    },
+    {
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+    },
+    {
+        "hrsh7th/cmp-nvim-lsp-document-symbol",
+    },
+    {
+        "hrsh7th/cmp-buffer",
+    },
+    {
+        "hrsh7th/cmp-cmdline",
+    },
+    {
+        "hrsh7th/cmp-calc",
+    },
+    {
+        "hrsh7th/cmp-path",
+    },
+    {
+        "hrsh7th/cmp-nvim-lua",
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+    },
+    {
+        "f3fora/cmp-spell",
+    },
+    {
+        "uga-rosa/cmp-dictionary",
+    },
+    {
+        "saadparwaiz1/cmp_luasnip",
+    },
+    {
+        "tzachar/cmp-tabnine",
+    },
+    {
+        "ray-x/cmp-treesitter",
+    },
+    {
+        "onsails/lspkind.nvim"
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        version = "1.*",
+        build = "make install_jsregexp",
+        event = "InsertEnter",
     },
     {
         "nvim-treesitter/nvim-treesitter",
@@ -287,7 +354,7 @@ require("lazy").setup{
     },
     {
         "numToStr/Comment.nvim",
-        lazy = true,
+        keys = { "g", { "g", mode = { "x" } } },
         dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
         config = function()
             require('Comment').setup {
@@ -386,7 +453,6 @@ require("lazy").setup{
             "nvim-lua/plenary.nvim",
             "tsakirist/telescope-lazy.nvim",
             "nvim-telescope/telescope-fzf-native.nvim",
-            "fannheyward/telescope-coc.nvim",
         },
         config = function()
             require("telescope").setup {
@@ -394,7 +460,6 @@ require("lazy").setup{
             }
             require("telescope").load_extension("fzf")
             require("telescope").load_extension("lazy")
-            require("telescope").load_extension("coc")
             require("telescope").load_extension("frecency")
             require("telescope").load_extension("neoclip")
         end,
@@ -406,10 +471,6 @@ require("lazy").setup{
     },
     {
         "tsakirist/telescope-lazy.nvim",
-        lazy = true,
-    },
-    {
-        "fannheyward/telescope-coc.nvim",
         lazy = true,
     },
     {
@@ -771,12 +832,12 @@ require("lazy").setup{
     {
         "folke/neodev.nvim",
         config = function()
-            -- require("neodev").setup({
-                -- library = {
-                --     plugins = { "nvim-dap-ui" },
-                --     types = true,
-                -- },
-            -- })
+            require("neodev").setup({
+                library = {
+                    plugins = { "nvim-dap-ui" },
+                    types = true,
+                },
+            })
         end,
     },
 }

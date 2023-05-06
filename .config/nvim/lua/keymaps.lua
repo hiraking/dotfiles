@@ -4,7 +4,7 @@ keymap("n", "Y", "y$")
 keymap("n", "+", "<C-a>")
 keymap("n", "-", "<C-x>")
 keymap("n", "<Leader>w", "<Cmd>write<CR>")
-keymap("i", "jj", "<ESC>")
+keymap("i", "jj", "<Esc>", { silent = true })
 
 --  ╭──────────────────────────────────────────────────────────╮
 --  │                       lspsaga.nvim                       │
