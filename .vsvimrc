@@ -1,0 +1,110 @@
+" setting
+set showcmd
+set backspace=indent,eol,start
+set vb t_vb=
+
+" visual
+set number
+set virtualedit=onemore
+set scrolloff=5
+
+" search
+set ignorecase
+set smartcase
+set incsearch
+set wrapscan
+set hlsearch
+
+" keymap
+let mapleader = "\<Space>"
+nnoremap j gj
+nnoremap k gk
+nnoremap <Leader>j 5j
+nnoremap <Leader>k 5k
+nnoremap U <C-r>
+nnoremap <Leader>d <C-d>
+nnoremap <Leader>u <C-u>
+xnoremap <Leader>d <C-d>
+xnoremap <Leader>u <C-u>
+
+inoremap jj <ESC>
+inoremap <C-h> <BS>
+nnoremap <Leader>; A;<Esc>
+xnoremap <Leader>j 5j
+xnoremap <Leader>k 5k
+
+nnoremap <CR> A<CR><Esc>
+nnoremap <Leader>l :noh<CR>
+
+nnoremap . ;
+
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+vnoremap v <C-v>
+
+" VS keymap
+
+nnoremap <Leader>tw :vsc Edit.ToggleWordWrap<CR>
+nnoremap <Leader>fr :vsc Edit.FindAllReferences<CR>
+nnoremap gl :Edit.GoToLastEditLocation<CR>
+nnoremap gr :vsc Edit.GoToRecentFile<CR>
+nnoremap gt :Edit.GoToTypeDefinition<CR>
+
+vnoremap <DOWN> :vsc Edit.MoveSelectedLinesUP<CR>
+vnoremap <UP> :vsc Edit.MoveSelectedLinesDown<CR>
+
+nnoremap <Leader>i :vsc Edit.QuickInfo<CR>
+
+nnoremap <Leader>r :vsc Debug.Start<CR>
+nnoremap <Leader>dq :vsc Debug.StopDebugging<CR>
+nnoremap <Leader>dr :vsc Debug.Restart<CR>
+nnoremap <Leader>dw :vsc Debug.StartWithoutDebugging<CR>
+nnoremap <Leader>dd :vsc Debug.StepOver<CR>
+nnoremap <Leader>df :vsc Debug.StepInto<CR>
+nnoremap <Leader>ds :vsc Debug.StepOut<CR>
+nnoremap <Leader>dc :vsc Debug.RunToCursor<CR>
+nnoremap <Leader>b :vsc Debug.ToggleBreakpoint<CR>
+nnoremap <Leader>B :vsc Debug.DeleteAllBreakpoints<CR>
+nnoremap ml :vsc Debug.Locals<CR>
+nnoremap mi :vsc Debug.Immediate<CR>
+
+nnoremap <Leader>c :vsc Edit.CommentSelection<CR>
+nnoremap <Leader>C :vsc Edit.UncommentSelection<CR>
+nnoremap <Leader>p :vsc Edit.FormatDocument<CR>
+nnoremap gc :vsc Edit.GoToDeclaration<CR>
+nnoremap gd :vsc Edit.GoToDefinition<CR>
+nnoremap gf :vsc Edit.PeekDefinition<CR>
+nnoremap <Leader>m :vsc Edit.ToggleBookmark<CR>
+nnoremap <Leader>M :vsc Edit.ClearBookmarks<CR>
+nnoremap ,b :vsc Edit.NextBookmark<CR>
+nnoremap ,B :vsc Edit.PreviousBookmark<CR>
+nnoremap ,l :vsc Edit.GoToNextLocation<CR>
+nnoremap ,L :vsc Edit.GoToPrevLocation<CR>
+nnoremap ,m :vsc Edit.NextMethod<CR>
+nnoremap ,M :vsc Edit.PreviousMethod<CR>
+nnoremap J :vsc Edit.ScrollLineDown<CR>
+nnoremap K :vsc Edit.ScrollLineUp<CR>
+
+nnoremap <Leader>w :vsc File.SaveSelectedItems<CR>
+nnoremap <Leader>W :vsc File.SaveAll<CR>
+nnoremap ,e :vsc View.NextError<CR>
+nnoremap ,E :vsc View.PreviousError<CR>
+
+nnoremap ; :vsc View.NavigateBackward<CR>
+vnoremap ; :vsc View.NavigateBackward<CR>
+nnoremap + :vsc View.NavigateForward<CR>
+vnoremap + :vsc View.NavigateForward<CR>
+nnoremap mm :vsc View.SolutionExplorer<CR>
+nnoremap ms :vsc View.SQLServerObjectExplorer<CR>
+nnoremap me :vsc View.ErrorList<CR>
+nnoremap md :vsc View.CodeDefinitionWindow<CR>
+nnoremap mg :vsc Team.Git.GoToGitChanges<CR>
+
+nnoremap mn :vsc Window.NextPane<CR>
+nnoremap mp :vsc Window.PreviousPane<CR>
+
+nnoremap <Leader>x :vsc Window.CloseDocumentWindow<CR>
+nnoremap <C-l> :vsc Window.NextTab<CR>
+nnoremap <C-h> :vsc Window.PreviousTab<CR>
