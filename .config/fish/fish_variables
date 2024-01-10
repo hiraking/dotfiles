@@ -12,6 +12,10 @@ SETUVAR Z_DATA:/home/hiraki/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/home/hiraki/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/home/hiraki\x24
 SETUVAR __fish_initialized:3100
+SETUVAR _fish_abbr_apti:sudo\x20apt\x20\x2dy\x20install
+SETUVAR _fish_abbr_aptr:sudo\x20apt\x20remove
+SETUVAR _fish_abbr_aptu:sudo\x20apt\x20update
+SETUVAR _fish_abbr_cat:bat
 SETUVAR _fish_abbr_ga:git\x20add
 SETUVAR _fish_abbr_gaa:git\x20add\x20\x2e
 SETUVAR _fish_abbr_gc:git\x20commit
@@ -22,7 +26,14 @@ SETUVAR _fish_abbr_gd:git\x20diff
 SETUVAR _fish_abbr_gf:git\x20fetch
 SETUVAR _fish_abbr_gp:git\x20push
 SETUVAR _fish_abbr_gs:git\x20status
+SETUVAR _fish_abbr_gst:git\x20status
 SETUVAR _fish_abbr_hcopy:history\x20\x7c\x20peco\x20\x7c\x20xclip\x20\x2dselection\x20clipboard
+SETUVAR _fish_abbr_la:exa\x20\x2da
+SETUVAR _fish_abbr_ll:exa\x20\x2dla
+SETUVAR _fish_abbr_ls:exa
+SETUVAR _fish_abbr_qemu:\x7e/osbook/devenv/run_qemu\x2esh\x20\x7e/edk2/Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader\x2eefi\x20\x7e/workspace/mikanos/kernel/kernel\x2eelf
+SETUVAR _fish_abbr_sconfig:source\x20\x7e/\x2econfig/fish/config\x2efish
+SETUVAR _fish_abbr_vconfig:vim\x20\x7e/\x2econfig/fish/config\x2efish
 SETUVAR _fisher_jethrokuan_2F_fzf_files:\x7e/\x2econfig/fish/functions/__fzf_cd\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_complete\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_complete_preview\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_find_file\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_get_dir\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_open\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_parse_commandline\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzf_reverse_isearch\x2efish\x1e\x7e/\x2econfig/fish/functions/__fzfcmd\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fzf\x2efish
 SETUVAR _fisher_jethrokuan_2F_z_files:\x7e/\x2econfig/fish/functions/__z\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_add\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_clean\x2efish\x1e\x7e/\x2econfig/fish/functions/__z_complete\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fish_2D_nvm_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
