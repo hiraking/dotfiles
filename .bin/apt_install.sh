@@ -8,10 +8,6 @@ sudo apt install fzf
 sudo apt install ripgrep
 sudo apt install httpie
 sudo apt install fish
-sudo snap install diff-so-fancy
 
 pip3 install thefuck
 pip3 install tldr
-
-git config --global core.pager "diff-so-fancy | less --tabs=4 -RF"
-git config --global interactive.diffFilter "diff-so-fancy --patch"
