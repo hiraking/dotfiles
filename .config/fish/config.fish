@@ -30,8 +30,3 @@ abbr -a -U -- sconfig 'source ~/.config/fish/config.fish'
 abbr -a -U -- vconfig 'vim ~/.config/fish/config.fish'
 
 abbr -a -U -- qemu '~/osbook/devenv/run_qemu.sh ~/edk2/Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader.efi ~/workspace/mikanos/kernel/kernel.elf'
-
-# 会社支給のSurfaceでセキュリティソフトをすり抜けるためのプロキシサーバーの設定
-set -x http_proxy http://172.29.112.1:3128
-set -x https_proxy http://172.29.112.1:3128
-
