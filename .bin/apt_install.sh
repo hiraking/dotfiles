@@ -1,3 +1,4 @@
+echo "updating ..."
 sudo apt update
 
 sudo apt install -y git
@@ -11,3 +12,5 @@ sudo apt install -y fish
 
 pip3 install thefuck --user
 pip3 install tldr --user
+
+echo "done"
