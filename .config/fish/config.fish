@@ -9,7 +9,7 @@ set -x DOTNET_ROOT /usr/share/dotnet
 thefuck --alias | source
 
 # abbr
-abbr -a -U -- apti 'sudo apt -y install'
+abbr -a -U -- apti 'sudo apt install -y'
 abbr -a -U -- aptr 'sudo apt remove'
 abbr -a -U -- aptu 'sudo apt update'
 
@@ -30,3 +30,6 @@ abbr -a -U -- sconfig 'source ~/.config/fish/config.fish'
 abbr -a -U -- vconfig 'vim ~/.config/fish/config.fish'
 
 abbr -a -U -- qemu '~/osbook/devenv/run_qemu.sh ~/edk2/Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader.efi ~/workspace/mikanos/kernel/kernel.elf'
+
+# at the end of config
+zoxide init fish | source

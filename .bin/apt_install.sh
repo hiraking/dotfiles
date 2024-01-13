@@ -11,6 +11,7 @@ ln -s /usr/bin/batcat ~/.local/bin/bat
 sudo apt install -y exa
 sudo apt install -y fzf
 sudo apt install -y ripgrep
+sudo apt install -y zoxide
 
 sudo snap install httpie
 
