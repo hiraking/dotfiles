@@ -10,3 +10,5 @@ $pure.ErrorColor  = "38;2;255;70;70"
 
 $env:PYTHONIOENCODING="utf-8"
 iex "$(thefuck --alias)"
+
+Invoke-Expression (& { (zoxide init powershell | Out-String) })

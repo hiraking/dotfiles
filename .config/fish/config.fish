@@ -6,7 +6,7 @@ set -x PATH $PATH:$HOME/.dotnet:$HOME/.dotnet/tools
 set -x PATH $PATH:$HOME/.local/bin
 set -x DOTNET_ROOT /usr/share/dotnet
 
-# thefuck --alias | source
+thefuck --alias | source
 
 # abbr
 abbr -a -U -- apti 'sudo apt install -y'
