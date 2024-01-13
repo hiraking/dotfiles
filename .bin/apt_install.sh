@@ -2,6 +2,7 @@ echo "updating ..."
 sudo apt update
 
 sudo apt install -y git
+git config --global core.editor "vim"
 sudo apt install -y python3-dev python3-pip python3-setuptools
 
 sudo apt install -y bat
