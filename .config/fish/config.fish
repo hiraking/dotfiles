@@ -15,6 +15,7 @@ abbr -a -U -- aptu 'sudo apt update'
 
 abbr -a -U -- ga 'git add'
 abbr -a -U -- gc 'git commit'
+abbr -a -U -- gca 'git commit --amend'
 abbr -a -U -- gco 'git checkout'
 abbr -a -U -- gd 'git diff'
 abbr -a -U -- gf 'git fetch'
@@ -26,8 +27,8 @@ abbr -a -U -- la 'exa -a'
 abbr -a -U -- ll 'exa -la'
 abbr -a -U -- ls exa
 
-abbr -a -U -- sconfig 'source ~/.config/fish/config.fish'
-abbr -a -U -- vconfig 'vim ~/.config/fish/config.fish'
+abbr -a -U -- sconf 'source ~/.config/fish/config.fish'
+abbr -a -U -- vconf 'vim ~/.config/fish/config.fish'
 
 abbr -a -U -- qemu '~/osbook/devenv/run_qemu.sh ~/edk2/Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader.efi ~/workspace/mikanos/kernel/kernel.elf'
 
