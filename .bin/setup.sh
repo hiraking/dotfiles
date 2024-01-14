@@ -22,7 +22,7 @@ sudo apt install -y fish
 pip3 install thefuck --user
 pip3 install tldr --user
 
-sudo chsh -s `which fish`
+sudo chsh -s $(which fish)
 
 if [ -d ~/.config/fish ]; then 
     echo "overriding exisiting ~/.config/fish directory"
