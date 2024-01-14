@@ -19,7 +19,7 @@ SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_gst:git\x20status
 SETUVAR _fish_abbr_hcopy:history\x20\x7c\x20peco\x20\x7c\x20xclip\x20\x2dselection\x20clipboard
 SETUVAR _fish_abbr_la:exa\x20\x2da
-SETUVAR _fish_abbr_ll:exa\x20\x2dla
+SETUVAR _fish_abbr_ll:exa\x20\x2dla\x20\x2d\x2dicons
 SETUVAR _fish_abbr_ls:exa
 SETUVAR _fish_abbr_qemu:\x7e/osbook/devenv/run_qemu\x2esh\x20\x7e/edk2/Build/MikanLoaderX64/DEBUG_CLANG38/X64/Loader\x2eefi\x20\x7e/workspace/mikanos/kernel/kernel\x2eelf
 SETUVAR _fish_abbr_sconf:source\x20\x7e/\x2econfig/fish/config\x2efish

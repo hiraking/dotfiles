@@ -24,7 +24,7 @@ abbr -a -U -- gst 'git status'
 
 abbr -a -U -- cat bat
 abbr -a -U -- la 'exa -a'
-abbr -a -U -- ll 'exa -la'
+abbr -a -U -- ll 'exa -la --icons'
 abbr -a -U -- ls exa
 
 abbr -a -U -- sconf 'source ~/.config/fish/config.fish'
