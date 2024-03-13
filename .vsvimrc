@@ -47,10 +47,11 @@ vnoremap v <C-v>
 " VS keymap
 
 nnoremap <Leader>tw :vsc Edit.ToggleWordWrap<CR>
-nnoremap <Leader>fr :vsc Edit.FindAllReferences<CR>
-nnoremap gl :Edit.GoToLastEditLocation<CR>
+nnoremap <Leader>ar :vsc Edit.FindAllReferences<CR>
+nnoremap gl :vsc Edit.GoToLastEditLocation<CR>
 nnoremap gr :vsc Edit.GoToRecentFile<CR>
-nnoremap gt :Edit.GoToTypeDefinition<CR>
+nnoremap gt :vsc Edit.GoToTypeDefinition<CR>
+nnoremap sf :vsc Edit.GoToFile<CR>
 
 vnoremap <DOWN> :vsc Edit.MoveSelectedLinesUP<CR>
 vnoremap <UP> :vsc Edit.MoveSelectedLinesDown<CR>
@@ -75,7 +76,7 @@ vnoremap <Leader>c :vsc Edit.CommentSelection<CR>
 nnoremap <Leader>C :vsc Edit.UncommentSelection<CR>
 vnoremap <Leader>C :vsc Edit.UncommentSelection<CR>
 nnoremap <Leader>p :vsc Edit.FormatDocument<CR>
-nnoremap gc :vsc Edit.GoToDeclaration<CR>
+nnoremap gc :vsc Edit.GoToImplementation<CR>
 nnoremap gd :vsc Edit.GoToDefinition<CR>
 nnoremap gf :vsc Edit.PeekDefinition<CR>
 nnoremap <Leader>m :vsc Edit.ToggleBookmark<CR>
