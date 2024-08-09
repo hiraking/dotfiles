@@ -28,5 +28,8 @@ function prompt() {
     return " "
 }
 
+# 文字化け対策
+[System.Console]::OutputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
+[System.Console]::InputEncoding = [System.Text.Encoding]::GetEncoding("utf-8")
 
 Invoke-Expression (& { (zoxide init powershell | Out-String) })
