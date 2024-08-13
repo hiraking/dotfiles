@@ -4,8 +4,6 @@ end
 
 set -x DOTNET_ROOT /usr/share/dotnet
 
-thefuck --alias | source
-
 # abbr
 abbr -a -U -- apti 'sudo apt install -y'
 abbr -a -U -- aptr 'sudo apt remove'
