@@ -7,9 +7,11 @@ SETUVAR _fish_abbr_aptr:sudo\x20apt\x20remove
 SETUVAR _fish_abbr_aptu:sudo\x20apt\x20update
 SETUVAR _fish_abbr_cat:bat
 SETUVAR _fish_abbr_ga:git\x20add
+SETUVAR _fish_abbr_ga_2E_:git\x20add\x20\x2e
 SETUVAR _fish_abbr_gaa:git\x20add\x20\x2e
 SETUVAR _fish_abbr_gc:git\x20commit
 SETUVAR _fish_abbr_gca:git\x20commit\x20\x2d\x2damend
+SETUVAR _fish_abbr_gcm:git\x20commit\x20\x2dm
 SETUVAR _fish_abbr_gco:git\x20checkout
 SETUVAR _fish_abbr_gcom:git\x20checkout\x20main
 SETUVAR _fish_abbr_gd:git\x20diff
