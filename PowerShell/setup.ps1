@@ -2,27 +2,40 @@ winget install ajeetdsouza.zoxide
 winget install fzf
 winget install BurntSushi.ripgrep.MSVC
 winget install sharkdp.bat
+winget install Starship.Starship
 
 Install-Module -Name Terminal-Icons
-Install-Module -Name pure-pwsh
 
-# $PROFILE のシンボリックリンクを作成する
-$targetProfilePath = Join-Path -Path $PSScriptRoot -ChildPath "profile.ps1"
+function New-DotfileSymlink {
+    param(
+        [Parameter(Mandatory)] [string]$LinkPath,
+        [Parameter(Mandatory)] [string]$TargetPath
+    )
 
-# $PROFILEで指定されたパスに同名のファイルがすでに存在するか確認
-if (Test-Path -Path $PROFILE) {
-    # 存在する場合、ユーザーに上書き許可を尋ねる
-    $response = Read-Host "$PROFILE は既に存在します。上書きしますか？ (y/n)"
-
-    # ユーザーが 'y' または 'yes' と入力した場合のみファイルを削除
-    if ($response -eq 'y' -or $response -eq 'yes') {
-        Remove-Item -Path $PROFILE -Force
-    } else {
-        # ユーザーが上書きを拒否した場合、スクリプトを終了
-        Write-Host "操作がキャンセルされました。"
-        exit
+    $linkDir = Split-Path -Parent $LinkPath
+    if (-not (Test-Path $linkDir)) {
+        New-Item -ItemType Directory -Path $linkDir -Force | Out-Null
     }
+
+    if (Test-Path -Path $LinkPath) {
+        $response = Read-Host "$LinkPath は既に存在します。上書きしますか？ (y/n)"
+        if ($response -ne 'y' -and $response -ne 'yes') {
+            Write-Host "$LinkPath のリンク作成をスキップします。"
+            return
+        }
+        Remove-Item -Path $LinkPath -Force
+    }
+
+    New-Item -ItemType SymbolicLink -Path $LinkPath -Target $TargetPath | Out-Null
+    Write-Host "Linked: $LinkPath -> $TargetPath"
 }
 
-# $PROFILEで指定されたパスにシンボリックリンクを作成
-New-Item -ItemType SymbolicLink -Path $PROFILE -Target $targetProfilePath
+$dotfilesRoot = Split-Path -Parent $PSScriptRoot
+
+New-DotfileSymlink `
+    -LinkPath $PROFILE `
+    -TargetPath (Join-Path $PSScriptRoot "profile.ps1")
+
+New-DotfileSymlink `
+    -LinkPath (Join-Path $HOME ".config\starship.toml") `
+    -TargetPath (Join-Path $dotfilesRoot ".config\starship.toml")
