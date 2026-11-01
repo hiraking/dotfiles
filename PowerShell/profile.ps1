@@ -5,3 +5,6 @@ $OutputEncoding = [System.Text.Encoding]::UTF8
 # Starship prompt
 Invoke-Expression (&starship init powershell)
 Enable-TransientPrompt
+
+# zoxide (must come after anything that redefines `prompt`)
+Invoke-Expression (& { (zoxide init powershell | Out-String) })
